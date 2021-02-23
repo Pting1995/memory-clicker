@@ -5,7 +5,7 @@ import images from "../../images.json";
 function catCard(props) {
   return (
     <div className="col-md-3">
-      <img src={props.pic} alt={props.name} className="rounded" width="250" height="250" onClick={() => props.handleClick(props.clickChoice)} />
+      <img src={props.pic} alt={props.name} className="rounded" width="250" height="250" onClick={() => props.clickChoice(images)} />
     </div>
 
   );

@@ -14,41 +14,39 @@ class App extends Component {
   };
 
 
-clickChoice = (images) => {
-  console.log(images)
-  // randomize
-  var currentIndex = images.length
-  var tempVal = 0
-  var randIndex = 0
-  while (currentIndex != 0) {
-    randIndex = Math.floor(Math.random() * currentIndex)
-    currentIndex--
+  clickChoice = (images) => {
+    console.log(images)
+    // randomize
+    var currentIndex = images.length
+    var tempVal = 0
+    var randIndex = 0
+    while (currentIndex != 0) {
+      randIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
 
-    tempVal = images[currentIndex];
-    images[currentIndex] = images[randIndex]
-    images[randIndex] = tempVal
+      tempVal = images[currentIndex];
+      images[currentIndex] = images[randIndex]
+      images[randIndex] = tempVal
+      return this.setState({
+        images: images
+      })
+    }
+
+    // score
+    if (this.state.clicked === false) {
+      this.state.clicked = true
+    }
+    this.state.score++;
+
+    // checks hiscore
+    if (this.state.score > this.state.hiscore) {
+      this.state.hiscore = this.state.score
+    }
+    else {
+      this.state.score = 0;
+    }
+    return this.state.score;
   }
-}
-
-// function checkPic(props) {
-//   if (props.clicked === false) {
-//     setState(prevState => {
-//       let props = Object.assign({}, prevState.jasper);
-//       props.clicked = false
-//       return props
-//     })
-//     console.log(props.clicked)
-//     score++;
-//     // checks hiscore
-//     if (score > hiscore) {
-//       hiscore = score
-//     }
-
-//   } else {
-//     score = 0;
-//   }
-//   return score;
-// }
 
   render() {
     return (
@@ -56,7 +54,7 @@ clickChoice = (images) => {
         <Navbar></Navbar>
         <Wrapper>
           {this.state.images.map(catPic => (
-            <CatCard name={catPic.name} pic={catPic.pic} id={catPic.id} clicked={catPic.clicked} handleClick={this.handleClick} />
+            <CatCard name={catPic.name} pic={catPic.pic} id={catPic.id} clicked={catPic.clicked} A clickChoice={this.clickChoice} />
           ))}
         </Wrapper>
 
