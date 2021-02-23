@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/memory-clicker/static/css/main.567f0e3f.chunk.css",
+    "main.js": "/memory-clicker/static/js/main.5016a250.chunk.js",
+    "main.js.map": "/memory-clicker/static/js/main.5016a250.chunk.js.map",
+    "runtime-main.js": "/memory-clicker/static/js/runtime-main.2032a476.js",
+    "runtime-main.js.map": "/memory-clicker/static/js/runtime-main.2032a476.js.map",
+    "static/js/2.9d852c72.chunk.js": "/memory-clicker/static/js/2.9d852c72.chunk.js",
+    "static/js/2.9d852c72.chunk.js.map": "/memory-clicker/static/js/2.9d852c72.chunk.js.map",
+    "index.html": "/memory-clicker/index.html",
+    "static/css/main.567f0e3f.chunk.css.map": "/memory-clicker/static/css/main.567f0e3f.chunk.css.map",
+    "static/js/2.9d852c72.chunk.js.LICENSE.txt": "/memory-clicker/static/js/2.9d852c72.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2032a476.js",
+    "static/js/2.9d852c72.chunk.js",
+    "static/css/main.567f0e3f.chunk.css",
+    "static/js/main.5016a250.chunk.js"
+  ]
+}
