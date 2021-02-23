@@ -22,11 +22,8 @@ class App extends Component {
       // score++
       var newScore = this.state.score + 1
       // console.log(newScore)
-      if (this.state.score > this.state.hiscore) {
-        return this.setState({
-          hiscore: newScore
-        })
-        // this.state.hiscore = this.state.score
+      if (newScore > this.state.hiscore) {
+        this.state.hiscore = newScore
       }
 
       var img = this.state.images
@@ -45,7 +42,13 @@ class App extends Component {
       })
     }
     // u lose
-    
+    else {
+      // reset but keep hiscore
+      images.forEach((index) => {index.clicked = false})
+      return this.setState({
+        score: 0
+      })
+    }
     // checks hiscore
   }
     render() {
