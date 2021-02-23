@@ -1,18 +1,13 @@
 import React from "react";
 import "./style.css";
-
-function clickChoice(id) {
-  
-}
+import images from "../../images.json";
 
 function catCard(props) {
   return (
     <div className="col-md-3">
-      
-        <img src={props.pic} alt={props.name} className="rounded" width="250" height="250" onClick={() => clickChoice(this.props.id)} />
-      {/* make onclick for the image */}
+      <img src={props.pic} alt={props.name} className="rounded" width="250" height="250" onClick={() => props.handleClick(props.clickChoice)} />
     </div>
-    
+
   );
 }
 
