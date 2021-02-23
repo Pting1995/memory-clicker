@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import images from "../../images.json";
 
 function catCard(props) {
   return (

@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Workout Tracker - Database
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This app lets you track your workouts! When you first use the app only the "new workout" button should appear! Click this and you will be able to enter a cardio or a resistance workout, and then be able to enter more information. This will be saved and if you go to the dashboard the information you entered will be displayed! The front-end components were provided, so I worked in the backend. I added a server.js, workout.js model, and the API and HTML routes.
 
-## Available Scripts
+## Preview of Working Site
 
-In the project directory, you can run:
+![Image](./public/images/memory-clicker-1400x700-demo.gif)
 
-### `npm start`
+## Deployed Link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [See Live Site](https://pting1995.github.io/memory-clicker/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This app is designed to help with your memory! Click a picture, but you better remember which one you clicked! If you click a unique picture you haven't clicked in this session yet the score will increment. If you click a picture you've clicked before this session, your score will go back to 0 and youll have to restart! This is my first project using react!
 
-### `npm test`
+## Code Snippet
+The code below shows the setState functions. In this example, images is being randomize, score is being updated and that specific picture's "clicked" value is being changed to true. If this picture is clicked again another function will run to reset all of the parameters except for the hiscore!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+``` JavaScript
+return this.setState({
+        // randomize
+        images: img.sort(() => Math.random() - 0.5),
+        score: newScore,
+        clicked: true
+      })
+```
 
-### `npm run build`
+## Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [JS](https://www.javascript.com/)
+* [GitHub](https://github.com/)
+* [Git](https://git-scm.com/)
+* [node.js](https://nodejs.org/en/)
+* [npm](https://www.npmjs.com/)
+* [react](https://reactjs.org/)
+* [gh-pages](https://pages.github.com/)
+* [react-dom](https://reactjs.org/docs/react-dom.html)
+* [react-scripts](https://www.npmjs.com/package/react-scripts)
+* [Web Vitals](https://web.dev/vitals/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authors
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Peter Ting**
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Link to Portfolio](https://portfolio-mk3.herokuapp.com/)
+- [Link to Github](https://github.com/Pting1995)
+- [Link to LinkedIn](https://www.linkedin.com/in/pting002/)
