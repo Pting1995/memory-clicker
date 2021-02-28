@@ -1,7 +1,7 @@
 # Memory Clicker
 
 ## Description
-This app lets you track your workouts! When you first use the app only the "new workout" button should appear! Click this and you will be able to enter a cardio or a resistance workout, and then be able to enter more information. This will be saved and if you go to the dashboard the information you entered will be displayed! The front-end components were provided, so I worked in the backend. I added a server.js, workout.js model, and the API and HTML routes.
+This app was designed to challenge the user with a memory test! Upon loading the app, the user will be met with a navbar presenting the current score and highest score. Try your best to click each cat picture once! If you click on a cat, your score will increment and the pictures will be randomized, but if you click on the same cat again then the score will reset and youll have to try again! Try your best to achieve a score of 12! That is a prefect score in this game! Don't get discracted by the cats! It's a tough game! Good luck and have fun!
 
 ## Preview of Working Site
 
