@@ -7,8 +7,8 @@ function Navbar(props) {
 			<h1 className="title">Cat Memorization Game</h1>
 			<p>Try your best to click each cat once!</p>
 			<div>
-				<p>Score: {props.scoreState.score}</p>
 				<p>Hiscore: {props.scoreState.highScore}</p>
+				<p>Score: {props.scoreState.score}</p>
 			</div>
 		</nav >
 	);

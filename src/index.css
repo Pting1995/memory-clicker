@@ -35,7 +35,7 @@ body,
 #root {
 	padding: 0;
 	margin: 0;
-	height: 100%;
+	height: auto;
 }
 
 h1,
@@ -46,6 +46,7 @@ h5,
 h6,
 p {
 	margin: 0;
+	color: white;
 }
 
 /* header */
@@ -81,9 +82,13 @@ nav.navbar div p {
 }
 
 /* main */
+#root {
+	background: black
+}
+
 section {
 	max-width: 1500px;
-	margin: 1rem auto;
+	margin: 0 auto;
 }
 
 .cat-container {
@@ -99,4 +104,7 @@ section {
 /* cat image */
 .cat-image {
 	border-radius: 10px;
+	border: 1px cyan solid;
+
+	cursor: pointer;
 }

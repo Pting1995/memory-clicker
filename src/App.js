@@ -27,17 +27,39 @@ function App() {
 		initImages()
 	}, [])
 
+	// useEffect(() => {
+	// 	const imageFeedback = setTimeout(() => {
+	// 		const shuffledImageState = imageState
+	// 		shuffle(shuffledImageState)
+	// 		setImageState(shuffledImageState)
+	// 	}, 3000);
+
+	// 	return () => clearTimeout(imageFeedback);
+
+	// }, [scoreState, imageState])
+
 	const imageClickHandler = (id) => {
 		var clickedImageIndex = imageState.findIndex((image) => image.id === id)
 		if (imageState[clickedImageIndex].clicked === false) {
-			const newImageState = imageState
-			newImageState[clickedImageIndex].clicked = true
-
-			setImageState(newImageState)
-
 			scoreIncrementer()
 
-			setImageState(imageState.sort(() => Math.random() - 0.5))
+			// update clicked to true
+			const newImageState = imageState
+			newImageState[clickedImageIndex].clicked = true
+			setImageState(newImageState)
+
+			var correctImage = document.getElementById(id)
+
+			var feedbackTimer;
+			const timer = () => {
+				window.clearTimeout(feedbackTimer);
+				feedbackTimer = window.setTimeout(() => {
+					const shuffledImageState = imageState
+					shuffle(shuffledImageState)
+					setImageState(shuffledImageState)
+				}, 3000);
+			}
+
 		}
 		// u lose
 		else {
@@ -64,6 +86,19 @@ function App() {
 				...scoreState
 			})
 		}
+	}
+
+	const shuffle = (array) => {
+		let currentIndex = array.length
+		let randomIndex;
+
+		while (currentIndex > 0) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex--;
+			[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+			console.log()
+		}
+		return array;
 	}
 
 	return (
