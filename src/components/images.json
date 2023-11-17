@@ -1,62 +1,62 @@
 [
-    {
-        "image": "/assets/AHH.webp"
-    },
-    {
-        "image": "/assets/awk.webp"
-    },
-    {
-        "image": "/assets/boop.webp"
-    },
-    {
-        "image": "/assets/borgor.webp"
-    },
-    {
-        "image": "/assets/cosy.webp"
-    },
-    {
-        "image": "/assets/donce.webp"
-    },
-    {
-        "image": "/assets/eepy.webp"
-    },
-    {
-        "image": "/assets/electron.webp"
-    },
-    {
-        "image": "/assets/foodMEOW.webp"
-    },
-    {
-        "image": "/assets/foooood.webp"
-    },
-    {
-        "image": "/assets/hark-who-knocks.webp"
-    },
-    {
-        "image": "/assets/help.webp"
-    },
-    {
-        "image": "/assets/hide.webp"
-    },
-    {
-        "image": "/assets/huff.webp"
-    },
-    {
-        "image": "/assets/IM-ANGIE.webp"
-    },
-    {
-        "image": "/assets/nyoom.webp"
-    },
-    {
-        "image": "/assets/pancake.webp"
-    },
-    {
-        "image": "/assets/sleep-paralysis-demeown.webp"
-    },
-    {
-        "image": "/assets/slippa.webp"
-    },
-    {
-        "image": "/assets/vaccum.webp"
-    }
+	{
+		"image": "/assets/cat-images/AHH.webp"
+	},
+	{
+		"image": "/assets/cat-images/awk.webp"
+	},
+	{
+		"image": "/assets/cat-images/boop.webp"
+	},
+	{
+		"image": "/assets/cat-images/borgor.webp"
+	},
+	{
+		"image": "/assets/cat-images/cosy.webp"
+	},
+	{
+		"image": "/assets/cat-images/donce.webp"
+	},
+	{
+		"image": "/assets/cat-images/eepy.webp"
+	},
+	{
+		"image": "/assets/cat-images/electron.webp"
+	},
+	{
+		"image": "/assets/cat-images/foodMEOW.webp"
+	},
+	{
+		"image": "/assets/cat-images/foooood.webp"
+	},
+	{
+		"image": "/assets/cat-images/hark-who-knocks.webp"
+	},
+	{
+		"image": "/assets/cat-images/help.webp"
+	},
+	{
+		"image": "/assets/cat-images/hide.webp"
+	},
+	{
+		"image": "/assets/cat-images/huff.webp"
+	},
+	{
+		"image": "/assets/cat-images/IM-ANGIE.webp"
+	},
+	{
+		"image": "/assets/cat-images/nyoom.webp"
+	},
+	{
+		"image": "/assets/cat-images/pancake.webp"
+	},
+	{
+		"image": "/assets/cat-images/sleep-paralysis-demeown.webp"
+	},
+	{
+		"image": "/assets/cat-images/slippa.webp"
+	},
+	{
+		"image": "/assets/cat-images/vaccum.webp"
+	}
 ]

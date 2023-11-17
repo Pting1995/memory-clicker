@@ -1,16 +1,17 @@
 import React from "react";
 
 function Navbar(props) {
-    // console.log(props)
-    return (
-        < nav className="navbar navbar-dark bg-dark" >
-            <div className="container-fluid">
-                <p className="navText">Cat Memorization Game</p>
-                <p className="navText">Try your best to click each cat once!</p>
-                <p className="navText">Score: {props.scoreState.score} | Hiscore: {props.scoreState.highScore}</p>
-            </div>
-        </nav >
-    );
+	// console.log(props)
+	return (
+		< nav className="navbar" >
+			<h1 className="title">Cat Memorization Game</h1>
+			<p>Try your best to click each cat once!</p>
+			<div>
+				<p>Score: {props.scoreState.score}</p>
+				<p>Hiscore: {props.scoreState.highScore}</p>
+			</div>
+		</nav >
+	);
 }
 
 export default Navbar;
