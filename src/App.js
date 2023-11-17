@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/NavBar.js"
 import Wrapper from "./components/Wrapper.js"
+
 import imageList from "./components/images.json";
 
 function App() {
