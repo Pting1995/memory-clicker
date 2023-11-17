@@ -1,56 +1,79 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/NavBar.js"
 import Wrapper from "./components/Wrapper.js"
+import imageList from "./components/images.json";
 
 function App() {
 	const [scoreState, setScoreState] = useState({
 		score: 0,
-		highscore: 0
+		highScore: 0
 	})
 
-	// const clickChoice = (id, clicked) => {
-	// 	if (clicked === false) {
-	// 		console.log(images)
+	const [imageState, setImageState] = useState([])
 
-	// 		// score++
-	// 		var newScore = this.state.score + 1
-	// 		// console.log(newScore)
-	// 		if (newScore > this.state.hiscore) {
-	// 			this.state.hiscore = newScore
-	// 		}
+	const initImages = () => {
+		var imageState = []
+		imageState = [...imageList].map((image, index) => ({
+			id: index,
+			imageName: "The cat meows at midnight",
+			...image,
+			clicked: false
+		}))
+		setImageState(imageState)
+	}
 
-	// 		var img = this.state.images
+	useEffect(() => {
+		initImages()
+	}, [])
 
-	// 		img.forEach((image, index) => {
-	// 			if (id === image.id) {
-	// 				img[index].clicked = true;
-	// 			}
-	// 		})
+	const imageClickHandler = (id) => {
+		var clickedImageIndex = imageState.findIndex((image) => image.id === id)
+		if (imageState[clickedImageIndex].clicked === false) {
+			const newImageState = imageState
+			newImageState[clickedImageIndex].clicked = true
 
-	// 		return this.setState({
-	// 			// randomize
-	// 			images: img.sort(() => Math.random() - 0.5),
-	// 			score: newScore,
-	// 			clicked: true
-	// 		})
-	// 	}
-	// 	// u lose
-	// 	else {
-	// 		// reset but keep hiscore
-	// 		images.forEach((index) => { index.clicked = false })
-	// 		return this.setState({
-	// 			score: 0
-	// 		})
-	// 	}
-	// 	// checks hiscore
-	// }
+			setImageState(newImageState)
+
+			scoreIncrementer()
+
+			setImageState(imageState.sort(() => Math.random() - 0.5))
+		}
+		// u lose
+		else {
+			// keep highscore but reset score/game
+			initImages()
+			setScoreState({
+				...scoreState,
+				score: 0
+			})
+		}
+	}
+
+	const scoreIncrementer = () => {
+		var newScore = scoreState.score + 1;
+		if (newScore > scoreState.highScore) {
+			setScoreState({
+				score: newScore,
+				highScore: newScore
+			})
+		}
+		else {
+			setScoreState({
+				score: newScore,
+				...scoreState
+			})
+		}
+	}
 
 	return (
 		<div>
 			<Navbar
 				scoreState={scoreState}
 			/>
-			<Wrapper />
+			<Wrapper
+				imageState={imageState}
+				imageClickHandler={imageClickHandler}
+			/>
 		</div>
 	);
 }
