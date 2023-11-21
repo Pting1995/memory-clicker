@@ -1,7 +1,7 @@
 import React from "react";
 
 function Navbar(props) {
-	console.log(props)
+	// console.log(props)
 	return (
 		<nav className={props.navbarState}>
 			<h1 className="title">Cat Memorization Game</h1>

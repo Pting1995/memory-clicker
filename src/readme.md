@@ -5,8 +5,9 @@ todo:
 ~~improve shuffle &~~
 ~~add more feedback to gaining points/losing - add an onclick that turns the card green and says correct w/ a timer~~
 ~~style.css~~
-make header sticky
-smooth shuffle transition\
+~~make header sticky~~
+add image hover state
+smooth shuffle transition
 add +1 to hiscore/score
 add cat api
 add switch between cat api and legacy images

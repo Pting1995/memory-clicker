@@ -30,9 +30,16 @@ function App() {
 	}, [])
 
 	useEffect(() => {
-		setTimeout(() => {
-			setnavbarState("default")
-		}, 3000);
+		if (navbarState === "correct" || navbarState === "incorrect") {
+			var timerDuration = 2000
+			const timer = setTimeout(() => {
+				setnavbarState("default")
+			}, timerDuration);
+			// prevent memory leaks
+			return () => {
+				clearTimeout(timer);
+			};
+		}
 	}, [navbarState])
 
 	const imageClickHandler = (id) => {
