@@ -95,7 +95,7 @@ section {
 	margin: 0 auto;
 }
 
-.cat-container {
+.cat-catalogue {
 	display: flex;
 	flex-flow: wrap;
 	justify-content: center;
@@ -106,9 +106,48 @@ section {
 }
 
 /* cat image */
-.cat-image {
-	border-radius: 10px;
-	border: 1px cyan solid;
+.cat-box {
+	position: relative;
 
+	margin: 0;
+	border: 2px cyan solid;
+	border-radius: 10px;
+
+	overflow: hidden;
 	cursor: pointer;
+}
+
+.cat-image {
+	display: block;
+	box-sizing: content-box;
+}
+
+.cat-box:hover .cat-image {
+	opacity: 60%;
+}
+
+figure:hover .cat-description {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	bottom: 0;
+
+	width: 100%;
+	height: 100%;
+}
+
+figure .cat-description {
+	display: none;
+}
+
+.click-text {
+	padding: 0.5rem;
+
+	background-color: black;
+	color: white;
+
+	border: 2px white solid;
+	border-radius: 10px;
 }

@@ -5,7 +5,7 @@ function Wrapper(props) {
 	// console.log(props)
 	return (
 		<section>
-			<div className="cat-container">
+			<div className="cat-catalogue">
 				{props.imageState.map((image, index) => {
 					return (<CatCard
 						key={index}
