@@ -12,6 +12,8 @@ function App() {
 
 	const [imageState, setImageState] = useState([])
 
+	const [navbarState, setnavbarState] = useState("default")
+
 	const initImages = () => {
 		var imageState = []
 		imageState = [...imageList].map((image, index) => ({
@@ -27,48 +29,38 @@ function App() {
 		initImages()
 	}, [])
 
-	// useEffect(() => {
-	// 	const imageFeedback = setTimeout(() => {
-	// 		const shuffledImageState = imageState
-	// 		shuffle(shuffledImageState)
-	// 		setImageState(shuffledImageState)
-	// 	}, 3000);
-
-	// 	return () => clearTimeout(imageFeedback);
-
-	// }, [scoreState, imageState])
+	useEffect(() => {
+		setTimeout(() => {
+			setnavbarState("default")
+		}, 3000);
+	}, [navbarState])
 
 	const imageClickHandler = (id) => {
 		var clickedImageIndex = imageState.findIndex((image) => image.id === id)
 		if (imageState[clickedImageIndex].clicked === false) {
 			scoreIncrementer()
 
+			setnavbarState("correct")
+
 			// update clicked to true
 			const newImageState = imageState
 			newImageState[clickedImageIndex].clicked = true
 			setImageState(newImageState)
 
-			var correctImage = document.getElementById(id)
-
-			var feedbackTimer;
-			const timer = () => {
-				window.clearTimeout(feedbackTimer);
-				feedbackTimer = window.setTimeout(() => {
-					const shuffledImageState = imageState
-					shuffle(shuffledImageState)
-					setImageState(shuffledImageState)
-				}, 3000);
-			}
-
+			const shuffledImageState = imageState
+			setImageState(shuffle(shuffledImageState))
 		}
 		// u lose
 		else {
 			// keep highscore but reset score/game
-			initImages()
 			setScoreState({
 				...scoreState,
 				score: 0
 			})
+
+			setnavbarState("incorrect")
+
+			initImages()
 		}
 	}
 
@@ -105,6 +97,7 @@ function App() {
 		<div>
 			<Navbar
 				scoreState={scoreState}
+				navbarState={navbarState}
 			/>
 			<Wrapper
 				imageState={imageState}

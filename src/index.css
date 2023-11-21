@@ -35,7 +35,8 @@ body,
 #root {
 	padding: 0;
 	margin: 0;
-	height: auto;
+	min-height: 100%;
+	background: black
 }
 
 h1,
@@ -50,7 +51,7 @@ p {
 }
 
 /* header */
-nav.navbar {
+nav {
 	display: flex;
 	place-content: space-between;
 
@@ -61,14 +62,22 @@ nav.navbar {
 	color: white;
 }
 
-nav.navbar p,
-nav.navbar h1 {
+nav p,
+nav h1 {
 	display: flex;
 	align-items: center;
 }
 
-nav.navbar div p {
+nav div p {
 	justify-content: end;
+}
+
+nav.correct {
+	background-color: #006140;
+}
+
+nav.incorrect {
+	background-color: #e2393a;
 }
 
 @media screen and (max-width: 767px) {
@@ -82,10 +91,6 @@ nav.navbar div p {
 }
 
 /* main */
-#root {
-	background: black
-}
-
 section {
 	max-width: 1500px;
 	margin: 0 auto;
