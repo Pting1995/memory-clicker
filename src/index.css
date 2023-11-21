@@ -52,6 +52,9 @@ p {
 
 /* header */
 nav {
+	position: sticky;
+	top: 0;
+
 	display: flex;
 	place-content: space-between;
 
