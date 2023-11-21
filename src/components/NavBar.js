@@ -10,7 +10,7 @@ function Navbar(props) {
 			{props.navbarState === "incorrect" && <p>Incorrect!</p>}
 			<div>
 				<p>Hiscore: {props.scoreState.highScore}</p>
-				<p>Score: {props.scoreState.score}</p>
+				{props.navbarState === "correct" ? <p>Score: {props.scoreState.score - 1} + 1 = {props.scoreState.score}</p> : <p>Score: {props.scoreState.score}</p>}
 			</div>
 		</nav >
 	);

@@ -7,7 +7,7 @@ todo:
 ~~style.css~~
 ~~make header sticky~~
 fix header timer
-add image hover state
+~~add image hover state~~
 smooth shuffle transition
 add +1 to hiscore/score
 add cat api
