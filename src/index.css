@@ -84,12 +84,8 @@ nav.incorrect {
 }
 
 @media screen and (max-width: 767px) {
-	nav.navbar {
+	nav {
 		flex-direction: column;
-	}
-
-	nav.navbar div p {
-		justify-content: start;
 	}
 }
 
