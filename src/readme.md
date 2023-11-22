@@ -9,7 +9,7 @@ todo:
 fix header timer
 ~~add image hover state~~
 smooth shuffle transition
-add +1 to hiscore/score
+~~add +1 to hiscore/score~~
 add cat api
 add switch between cat api and legacy images
 add more apis?
