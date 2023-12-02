@@ -125,11 +125,11 @@ section {
 	animation-timing-function: ease-in;
 }
 
-/* @keyframes cssAnimation {
+@keyframes cssAnimation {
 	to {
 		opacity: 1;
 	}
-} */
+}
 
 .cat-image {
 	display: block;
