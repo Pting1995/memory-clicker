@@ -19,9 +19,9 @@ function App() {
 	const initImages = () => {
 		var imageState = []
 		imageState = [...imageList].map((image, index) => ({
+			...image,
 			id: index,
 			imageName: "The cat meows at midnight",
-			...image,
 			clicked: false
 		}))
 		setImageState(imageState)

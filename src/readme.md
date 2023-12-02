@@ -16,7 +16,6 @@ Runs script to publish to gh-pages
 
 todo: 
 
-fix scoring system - after you lose it doesnt reset properly
 fix header timer
 add cat api
 add switch between cat api and legacy images
