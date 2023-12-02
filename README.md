@@ -38,7 +38,6 @@ return this.setState({
 * [gh-pages](https://pages.github.com/)
 * [react-dom](https://reactjs.org/docs/react-dom.html)
 * [react-scripts](https://www.npmjs.com/package/react-scripts)
-* [Web Vitals](https://web.dev/vitals/)
 
 ## Authors
 
