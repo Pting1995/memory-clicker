@@ -31,10 +31,9 @@ function App() {
 
 	useEffect(() => {
 		if (navbarState === "correct" || navbarState === "incorrect") {
-			var timerDuration = 2000
 			const timer = setTimeout(() => {
 				setnavbarState("default")
-			}, timerDuration);
+			}, 2000);
 			// prevent memory leaks
 			return () => {
 				clearTimeout(timer);
