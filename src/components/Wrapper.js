@@ -10,6 +10,7 @@ function Wrapper(props) {
 					return (<CatCard
 						key={index}
 						{...image}
+						imageAnimation={props.imageAnimation}
 						imageClickHandler={props.imageClickHandler}
 					/>)
 				})}

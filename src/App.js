@@ -12,6 +12,8 @@ function App() {
 
 	const [imageState, setImageState] = useState([])
 
+	const [imageAnimation, setImageAnimation] = useState(true)
+
 	const [navbarState, setnavbarState] = useState("default")
 
 	const initImages = () => {
@@ -28,6 +30,10 @@ function App() {
 	useEffect(() => {
 		initImages()
 	}, [])
+
+	useEffect(() => {
+		setImageAnimation(true)
+	}, [imageAnimation])
 
 	useEffect(() => {
 		if (navbarState === "correct" || navbarState === "incorrect") {
@@ -68,6 +74,7 @@ function App() {
 
 			initImages()
 		}
+		setImageAnimation(false)
 	}
 
 	const scoreIncrementer = () => {
@@ -107,6 +114,7 @@ function App() {
 			/>
 			<Wrapper
 				imageState={imageState}
+				imageAnimation={imageAnimation}
 				imageClickHandler={imageClickHandler}
 			/>
 		</div>
