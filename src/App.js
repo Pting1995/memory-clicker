@@ -12,7 +12,7 @@ function App() {
 
 	const [imageState, setImageState] = useState([])
 
-	const [imageAnimation, setImageAnimation] = useState(true)
+	const [imageAnimation, setImageAnimation] = useState(false)
 
 	const [navbarState, setnavbarState] = useState("default")
 
@@ -32,7 +32,7 @@ function App() {
 	}, [])
 
 	useEffect(() => {
-		setImageAnimation(true)
+		setImageAnimation(false)
 	}, [imageAnimation])
 
 	useEffect(() => {
@@ -65,16 +65,15 @@ function App() {
 		// u lose
 		else {
 			// keep highscore but reset score/game
-			setScoreState({
-				...scoreState,
-				score: 0
-			})
+			const resetScoreState = scoreState
+			resetScoreState.score = 0
+			setScoreState(resetScoreState)
 
 			setnavbarState("incorrect")
 
 			initImages()
 		}
-		setImageAnimation(false)
+		setImageAnimation(true)
 	}
 
 	const scoreIncrementer = () => {
@@ -87,8 +86,8 @@ function App() {
 		}
 		else {
 			setScoreState({
-				score: newScore,
-				...scoreState
+				...scoreState,
+				score: newScore
 			})
 		}
 	}
