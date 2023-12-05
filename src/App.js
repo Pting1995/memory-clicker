@@ -23,20 +23,12 @@ function App() {
 	}, [])
 
 	useEffect(() => {
-		setTimeout(() => {
-			setImageAnimation("fade-in")
-		}, 500)
+		timeoutHandler(setImageAnimation, "fade-in", 500)
 	}, [imageAnimation])
 
 	useEffect(() => {
 		if (navbarState === "correct" || navbarState === "incorrect") {
-			const timer = setTimeout(() => {
-				setnavbarState("default")
-			}, 2000);
-			// prevent memory leaks
-			return () => {
-				clearTimeout(timer);
-			};
+			timeoutHandler(setnavbarState, "default", 1500)
 		}
 	}, [navbarState])
 
@@ -53,8 +45,13 @@ function App() {
 
 	const imageClickHandler = (id) => {
 		if (imageClickState === false) {
+
 			setImageClickState(true)
+			setImageAnimation("fade-out")
+			timeoutHandler(setImageClickState, false, 1500)
+
 			var clickedImageIndex = imageState.findIndex((image) => image.id === id)
+
 			if (imageState[clickedImageIndex].clicked === false) {
 				scoreIncrementer()
 
@@ -64,13 +61,11 @@ function App() {
 				const newImageState = imageState
 				newImageState[clickedImageIndex].clicked = true
 				setImageState(newImageState)
+
 				setTimeout(() => {
 					const shuffledImageState = imageState
 					setImageState(shuffle(shuffledImageState))
 				}, 500)
-				setTimeout(() => {
-					setImageClickState(false)
-				}, 1500)
 			}
 			// u lose
 			else {
@@ -83,7 +78,6 @@ function App() {
 
 				initImages()
 			}
-			setImageAnimation("fade-out")
 		}
 	}
 
@@ -101,6 +95,16 @@ function App() {
 				score: newScore
 			})
 		}
+	}
+
+	const timeoutHandler = (func, updateVar, time) => {
+		const timer = setTimeout(() => {
+			func(updateVar)
+		}, time);
+		// prevent memory leaks
+		return () => {
+			clearTimeout(timer);
+		};
 	}
 
 	const shuffle = (array) => {
