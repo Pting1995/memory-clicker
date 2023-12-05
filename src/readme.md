@@ -17,7 +17,6 @@ Runs script to publish to gh-pages
 todo: 
 
 add a single image option
-add more header states to better describe what you're supposed to do
 fix header timer
 add cat api
 add switch between cat api and legacy images
