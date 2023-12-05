@@ -12,27 +12,18 @@ function App() {
 
 	const [imageState, setImageState] = useState([])
 
-	const [imageAnimation, setImageAnimation] = useState(false)
+	const [imageAnimation, setImageAnimation] = useState("fade-in")
 
 	const [navbarState, setnavbarState] = useState("default")
-
-	const initImages = () => {
-		var imageState = []
-		imageState = [...imageList].map((image, index) => ({
-			...image,
-			id: index,
-			imageName: "The cat meows at midnight",
-			clicked: false
-		}))
-		setImageState(imageState)
-	}
 
 	useEffect(() => {
 		initImages()
 	}, [])
 
 	useEffect(() => {
-		setImageAnimation(false)
+		setTimeout(() => {
+			setImageAnimation("fade-in")
+		}, 500)
 	}, [imageAnimation])
 
 	useEffect(() => {
@@ -47,6 +38,17 @@ function App() {
 		}
 	}, [navbarState])
 
+	const initImages = () => {
+		var imageState = []
+		imageState = [...imageList].map((image, index) => ({
+			...image,
+			id: index,
+			imageName: "The cat meows at midnight",
+			clicked: false
+		}))
+		setImageState(imageState)
+	}
+
 	const imageClickHandler = (id) => {
 		var clickedImageIndex = imageState.findIndex((image) => image.id === id)
 		if (imageState[clickedImageIndex].clicked === false) {
@@ -59,8 +61,10 @@ function App() {
 			newImageState[clickedImageIndex].clicked = true
 			setImageState(newImageState)
 
-			const shuffledImageState = imageState
-			setImageState(shuffle(shuffledImageState))
+			setTimeout(() => {
+				const shuffledImageState = imageState
+				setImageState(shuffle(shuffledImageState))
+			}, 500)
 		}
 		// u lose
 		else {
@@ -73,7 +77,7 @@ function App() {
 
 			initImages()
 		}
-		setImageAnimation(true)
+		setImageAnimation("fade-out")
 	}
 
 	const scoreIncrementer = () => {

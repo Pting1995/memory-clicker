@@ -119,16 +119,32 @@ section {
 }
 
 .fade-in {
-	animation-name: cssAnimation;
+	animation-name: fade-in;
 	animation-duration: 1s;
 	opacity: 0;
+	animation-direction: normal;
 	animation-fill-mode: forwards;
 	animation-timing-function: ease-in;
 }
 
-@keyframes cssAnimation {
+@keyframes fade-in {
 	to {
 		opacity: 1;
+	}
+}
+
+.fade-out {
+	animation-name: fade-out;
+	animation-duration: .5s;
+	opacity: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in;
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
 	}
 }
 
@@ -138,7 +154,7 @@ section {
 }
 
 .cat-box:hover .cat-image {
-	opacity: .7;
+	opacity: .5;
 }
 
 figure:hover .cat-description {
