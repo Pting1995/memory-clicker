@@ -6,7 +6,7 @@ import imageList from "./components/images.json";
 
 function App() {
 	const [scoreState, setScoreState] = useState({
-		score: 0,
+		currentScore: 0,
 		highScore: 0
 	})
 
@@ -14,7 +14,7 @@ function App() {
 
 	const [imageAnimation, setImageAnimation] = useState("fade-in")
 
-	const [navbarState, setnavbarState] = useState("default")
+	const [navbarState, setnavbarState] = useState("initial")
 
 	const [imageClickState, setImageClickState] = useState(false)
 
@@ -28,7 +28,7 @@ function App() {
 
 	useEffect(() => {
 		if (navbarState === "correct" || navbarState === "incorrect") {
-			timeoutHandler(setnavbarState, "default", 1500)
+			timeoutHandler(setnavbarState, "default", 2000)
 		}
 	}, [navbarState])
 
@@ -69,9 +69,9 @@ function App() {
 			}
 			// u lose
 			else {
-				// keep highscore but reset score/game
+				// keep highscore, reset currentScore
 				const resetScoreState = scoreState
-				resetScoreState.score = 0
+				resetScoreState.currentScore = 0
 				setScoreState(resetScoreState)
 
 				setnavbarState("incorrect")
@@ -82,17 +82,17 @@ function App() {
 	}
 
 	const scoreIncrementer = () => {
-		var newScore = scoreState.score + 1;
+		var newScore = scoreState.currentScore + 1;
 		if (newScore > scoreState.highScore) {
 			setScoreState({
-				score: newScore,
+				currentScore: newScore,
 				highScore: newScore
 			})
 		}
 		else {
 			setScoreState({
 				...scoreState,
-				score: newScore
+				currentScore: newScore
 			})
 		}
 	}

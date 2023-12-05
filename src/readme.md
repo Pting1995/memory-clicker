@@ -16,7 +16,6 @@ Runs script to publish to gh-pages
 
 todo: 
 
-add fade away transition
 add a single image option
 add more header states to better describe what you're supposed to do
 fix header timer
