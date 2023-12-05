@@ -16,6 +16,8 @@ function App() {
 
 	const [navbarState, setnavbarState] = useState("default")
 
+	const [imageClickState, setImageClickState] = useState(false)
+
 	useEffect(() => {
 		initImages()
 	}, [])
@@ -50,34 +52,39 @@ function App() {
 	}
 
 	const imageClickHandler = (id) => {
-		var clickedImageIndex = imageState.findIndex((image) => image.id === id)
-		if (imageState[clickedImageIndex].clicked === false) {
-			scoreIncrementer()
+		if (imageClickState === false) {
+			setImageClickState(true)
+			var clickedImageIndex = imageState.findIndex((image) => image.id === id)
+			if (imageState[clickedImageIndex].clicked === false) {
+				scoreIncrementer()
 
-			setnavbarState("correct")
+				setnavbarState("correct")
 
-			// update clicked to true
-			const newImageState = imageState
-			newImageState[clickedImageIndex].clicked = true
-			setImageState(newImageState)
+				// update clicked to true
+				const newImageState = imageState
+				newImageState[clickedImageIndex].clicked = true
+				setImageState(newImageState)
+				setTimeout(() => {
+					const shuffledImageState = imageState
+					setImageState(shuffle(shuffledImageState))
+				}, 500)
+				setTimeout(() => {
+					setImageClickState(false)
+				}, 1500)
+			}
+			// u lose
+			else {
+				// keep highscore but reset score/game
+				const resetScoreState = scoreState
+				resetScoreState.score = 0
+				setScoreState(resetScoreState)
 
-			setTimeout(() => {
-				const shuffledImageState = imageState
-				setImageState(shuffle(shuffledImageState))
-			}, 500)
+				setnavbarState("incorrect")
+
+				initImages()
+			}
+			setImageAnimation("fade-out")
 		}
-		// u lose
-		else {
-			// keep highscore but reset score/game
-			const resetScoreState = scoreState
-			resetScoreState.score = 0
-			setScoreState(resetScoreState)
-
-			setnavbarState("incorrect")
-
-			initImages()
-		}
-		setImageAnimation("fade-out")
 	}
 
 	const scoreIncrementer = () => {
