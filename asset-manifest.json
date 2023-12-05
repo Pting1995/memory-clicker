@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/memory-clicker/static/css/main.46427efa.chunk.css",
-    "main.js": "/memory-clicker/static/js/main.8205a337.chunk.js",
-    "main.js.map": "/memory-clicker/static/js/main.8205a337.chunk.js.map",
+    "main.css": "/memory-clicker/static/css/main.db0613ce.chunk.css",
+    "main.js": "/memory-clicker/static/js/main.22550eaf.chunk.js",
+    "main.js.map": "/memory-clicker/static/js/main.22550eaf.chunk.js.map",
     "runtime-main.js": "/memory-clicker/static/js/runtime-main.5c242d4a.js",
     "runtime-main.js.map": "/memory-clicker/static/js/runtime-main.5c242d4a.js.map",
     "static/js/2.17d09a82.chunk.js": "/memory-clicker/static/js/2.17d09a82.chunk.js",
     "static/js/2.17d09a82.chunk.js.map": "/memory-clicker/static/js/2.17d09a82.chunk.js.map",
     "index.html": "/memory-clicker/index.html",
-    "static/css/main.46427efa.chunk.css.map": "/memory-clicker/static/css/main.46427efa.chunk.css.map",
+    "static/css/main.db0613ce.chunk.css.map": "/memory-clicker/static/css/main.db0613ce.chunk.css.map",
     "static/js/2.17d09a82.chunk.js.LICENSE.txt": "/memory-clicker/static/js/2.17d09a82.chunk.js.LICENSE.txt",
     "static/media/index.css": "/memory-clicker/static/media/quicksand.d71cb2a4.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.5c242d4a.js",
     "static/js/2.17d09a82.chunk.js",
-    "static/css/main.46427efa.chunk.css",
-    "static/js/main.8205a337.chunk.js"
+    "static/css/main.db0613ce.chunk.css",
+    "static/js/main.22550eaf.chunk.js"
   ]
 }
