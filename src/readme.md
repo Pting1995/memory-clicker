@@ -16,6 +16,7 @@ Runs script to publish to gh-pages
 
 todo: 
 
+add sidebar for options
 add a single image option
 fix header timer
 add cat api
@@ -25,3 +26,9 @@ add switch between cat api and legacy images
 https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t
 https://thecatapi.com/
 https://cataas.com/
+
+#11151c
+#212d40
+#364156
+#7d4e57
+#d66853

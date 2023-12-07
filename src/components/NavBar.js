@@ -4,7 +4,6 @@ function Navbar(props) {
 	// console.log(props)
 	return (
 		<nav className={props.navbarState}>
-			<h1 className="title">Cat Memorization Game</h1>
 			{props.navbarState === "initial" && <p>Click each cat once!</p>}
 			{props.navbarState === "default" && <p>Keep clicking cats you haven't clicked before!</p>}
 			{props.navbarState === "correct" && <p>Correct!</p>}

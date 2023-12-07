@@ -50,6 +50,30 @@ p {
 	color: white;
 }
 
+#root {
+	display: flex;
+}
+
+/* sidebar */
+.side-bar {
+	position: static;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	min-width: 300px;
+
+	background: #364156;
+
+	display: flex;
+	justify-content: center;
+
+	padding: 1rem;
+}
+
+h1 {
+	font-size: 1.4em;
+}
+
 /* header */
 nav {
 	z-index: 1;
@@ -62,7 +86,7 @@ nav {
 	padding: 1rem;
 	gap: 1rem;
 
-	background-color: #374a53;
+	background-color: #212d40;
 	color: white;
 }
 
@@ -90,9 +114,13 @@ nav.incorrect {
 	}
 }
 
-/* main */
-section {
+/* main content */
+main {
+	width: auto;
 	max-width: 1500px;
+}
+
+section {
 	margin: 0 auto;
 }
 

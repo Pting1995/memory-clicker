@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/NavBar.js"
 import Wrapper from "./components/Wrapper.js"
+import Sidebar from "./components/SideBar.js"
 
 import imageList from "./components/images.json";
 
@@ -121,17 +122,21 @@ function App() {
 	}
 
 	return (
-		<div>
-			<Navbar
-				scoreState={scoreState}
-				navbarState={navbarState}
-			/>
-			<Wrapper
-				imageState={imageState}
-				imageAnimation={imageAnimation}
-				imageClickHandler={imageClickHandler}
-			/>
-		</div>
+		<>
+			<Sidebar />
+			<main>
+				<Navbar
+					scoreState={scoreState}
+					navbarState={navbarState}
+				/>
+				<Wrapper
+					imageState={imageState}
+					imageAnimation={imageAnimation}
+					imageClickHandler={imageClickHandler}
+				/>
+			</main>
+
+		</>
 	);
 }
 
