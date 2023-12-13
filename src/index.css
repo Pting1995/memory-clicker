@@ -54,9 +54,9 @@ p {
 	display: flex;
 }
 
-/* sidebar */
 .side-bar {
-	position: static;
+	position: sticky;
+	top: 0;
 	height: 100vh;
 	min-width: 300px;
 

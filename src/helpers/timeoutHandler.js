@@ -1,4 +1,5 @@
 const timeoutHandler = (func, updateVar, time) => {
+	console.log(time)
 	const timer = setTimeout(() => {
 		func(updateVar)
 	}, time);

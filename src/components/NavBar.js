@@ -4,7 +4,7 @@ import timeoutHandler from "../helpers/timeoutHandler";
 function Navbar(props) {
 	useEffect(() => {
 		if (props.navbarState === "correct" || props.navbarState === "incorrect") {
-			timeoutHandler(props.setnavbarState, "default", 2000)
+			timeoutHandler(props.setnavbarState, "default", 1500)
 		}
 	}, [props.navbarState])
 

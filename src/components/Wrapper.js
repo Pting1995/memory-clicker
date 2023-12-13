@@ -30,45 +30,58 @@ function Wrapper(props) {
 		setImageState(imageState)
 	}
 
+	var fadeOutTimer = 500
+	var fadeInTimer = 1000
+	var totalFadeTimer = fadeOutTimer + fadeInTimer
+
 	useEffect(() => {
-		timeoutHandler(setImageAnimation, "fade-in", 500)
+		if (imageClickState === true) {
+			timeoutHandler(setImageClickState, false, totalFadeTimer)
+		}
+	}, [imageClickState])
+
+	useEffect(() => {
+		timeoutHandler(setImageAnimation, "fade-in", fadeOutTimer)
 	}, [imageAnimation])
 
 	const imageClickHandler = (id) => {
 		if (imageClickState === false) {
+			var userChoice;
 
 			setImageClickState(true)
+
 			setImageAnimation("fade-out")
-			timeoutHandler(setImageClickState, false, 1500)
 
 			var clickedImageIndex = imageState.findIndex((image) => image.id === id)
 
 			if (imageState[clickedImageIndex].clicked === false) {
-				scoreIncrementer(props.scoreState, props.setScoreState)
+				userChoice = "correct"
 
-				props.setnavbarState("correct")
+				scoreIncrementer(props.scoreState, props.setScoreState)
 
 				// update clicked to true
 				const newImageState = imageState
 				newImageState[clickedImageIndex].clicked = true
 				setImageState(newImageState)
 
+				// shuffle image array
 				setTimeout(() => {
-					const shuffledImageState = imageState
+					const shuffledImageState = shuffleArray(imageState)
 					setImageState(shuffleArray(shuffledImageState))
-				}, 500)
+				}, fadeOutTimer)
 			}
 			// u lose
 			else {
+				userChoice = "incorrect"
+
 				// keep highscore, reset currentScore
 				const resetScoreState = props.scoreState
 				resetScoreState.currentScore = 0
 				props.setScoreState(resetScoreState)
 
-				props.setnavbarState("incorrect")
-
 				initImages()
 			}
+			props.setnavbarState(userChoice)
 		}
 	}
 
@@ -79,12 +92,12 @@ function Wrapper(props) {
 				return (<CatCard
 					key={index}
 					{...image}
+					imageClickState={imageClickState}
 					imageAnimation={imageAnimation}
 					imageClickHandler={imageClickHandler}
 				/>)
 			})}
 		</section>
-
 	)
 }
 export default Wrapper;
