@@ -1,7 +1,15 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import timeoutHandler from "../helpers/timeoutHandler";
 
 function Navbar(props) {
+	useEffect(() => {
+		if (props.navbarState === "correct" || props.navbarState === "incorrect") {
+			timeoutHandler(props.setnavbarState, "default", 2000)
+		}
+	}, [props.navbarState])
+
 	// console.log(props)
+
 	return (
 		<nav className={props.navbarState}>
 			{props.navbarState === "initial" && <p>Click each cat once!</p>}

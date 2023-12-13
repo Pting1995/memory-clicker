@@ -57,8 +57,6 @@ p {
 /* sidebar */
 .side-bar {
 	position: static;
-	top: 0;
-	left: 0;
 	height: 100vh;
 	min-width: 300px;
 

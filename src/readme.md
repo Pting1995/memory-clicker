@@ -16,7 +16,7 @@ Runs script to publish to gh-pages
 
 todo: 
 
-add sidebar for options
+create error message
 add a single image option
 fix header timer
 add cat api
