@@ -7,7 +7,7 @@ function ErrorPage() {
 		<>
 			<section className="cat-catalogue">
 				<figure>
-					<img className="cat-box" src={meowtta} />
+					<img className="cat-box" src={meowtta} alt="scared cat" />
 					<h1>404: Get meowtta here</h1>
 				</figure>
 

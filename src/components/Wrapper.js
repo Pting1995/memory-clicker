@@ -38,11 +38,11 @@ function Wrapper(props) {
 		if (imageClickState === true) {
 			timeoutHandler(setImageClickState, false, totalFadeTimer)
 		}
-	}, [imageClickState])
+	}, [imageClickState, totalFadeTimer])
 
 	useEffect(() => {
 		timeoutHandler(setImageAnimation, "fade-in", fadeOutTimer)
-	}, [imageAnimation])
+	}, [imageAnimation, fadeOutTimer])
 
 	const imageClickHandler = (id) => {
 		if (imageClickState === false) {
