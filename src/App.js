@@ -2,7 +2,6 @@ import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/NavBar.js"
 import Sidebar from "./components/SideBar.js"
-import Wrapper from "./components/Wrapper.js";
 
 import OverviewProjectPage from "./pages/overviewImagePage.js"
 import SingleProjectPage from "./pages/singleImagePage.js"
@@ -26,11 +25,8 @@ function App() {
 					navbarState={navbarState}
 					setnavbarState={setnavbarState}
 				/>
-				{/* <RouterProvider router={router}
-				scoreState={scoreState}
-				navbarState={navbarState}
-				/> */}
-				<Wrapper
+				<RouterProvider
+					router={router}
 					scoreState={scoreState}
 					setScoreState={setScoreState}
 					navbarState={navbarState}
@@ -44,16 +40,15 @@ function App() {
 
 const router = createBrowserRouter([
 	{
-		path: "/",
-		element: <App />,
+		path: "/memory-clicker",
 		errorElement: <ErrorPage />,
 		children: [
 			{
-				path: "/all",
+				path: "all",
 				element: <OverviewProjectPage />
 			},
 			// {
-			// 	path: "/featured",
+			// 	path: "featured",
 			// 	element: <SingleProjectPage />
 			// }
 		]
