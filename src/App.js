@@ -27,10 +27,6 @@ function App() {
 				/>
 				<RouterProvider
 					router={router}
-					scoreState={scoreState}
-					setScoreState={setScoreState}
-					navbarState={navbarState}
-					setnavbarState={setnavbarState}
 				/>
 			</main>
 
@@ -44,7 +40,7 @@ const router = createBrowserRouter([
 		errorElement: <ErrorPage />,
 		children: [
 			{
-				path: "all",
+				path: "",
 				element: <OverviewProjectPage />
 			},
 			// {
