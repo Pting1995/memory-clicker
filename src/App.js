@@ -15,6 +15,28 @@ function App() {
 
 	const [navbarState, setnavbarState] = useState("initial")
 
+	const router = createBrowserRouter([
+		{
+			path: "/memory-clicker",
+			errorElement: <ErrorPage />,
+			children: [
+				{
+					path: "",
+					element: <OverviewProjectPage
+						scoreState={scoreState}
+						setScoreState={setScoreState}
+						navbarState={navbarState}
+						setnavbarState={setnavbarState}
+					/>
+				},
+				// {
+				// 	path: "featured",
+				// 	element: <SingleProjectPage />
+				// }
+			]
+		}
+	])
+
 	return (
 		<>
 			<Sidebar />
@@ -32,23 +54,10 @@ function App() {
 
 		</>
 	);
+
+
 }
 
-const router = createBrowserRouter([
-	{
-		path: "/memory-clicker",
-		errorElement: <ErrorPage />,
-		children: [
-			{
-				path: "",
-				element: <OverviewProjectPage />
-			},
-			// {
-			// 	path: "featured",
-			// 	element: <SingleProjectPage />
-			// }
-		]
-	}
-])
+
 
 export default App;

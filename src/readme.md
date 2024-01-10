@@ -16,7 +16,6 @@ Runs script to publish to gh-pages
 
 todo: 
 
-figure out prop data propagation across pages
 add a single image option
 fix header timer
 add cat api
