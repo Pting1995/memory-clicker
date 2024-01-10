@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 
 import CatCard from "./CatCard.js"
 
-import imageList from "../components/images.json"
-
+import initImages from "../helpers/initImages.js";
 import scoreIncrementer from "../helpers/scoreIncrementer";
 import shuffleArray from "../helpers/shuffleArray";
 import timeoutHandler from "../helpers/timeoutHandler.js";
@@ -16,19 +15,8 @@ function Wrapper(props) {
 	const [imageAnimation, setImageAnimation] = useState("fade-in")
 
 	useEffect(() => {
-		initImages()
+		initImages(setImageState)
 	}, [])
-
-	const initImages = () => {
-		var imageState = []
-		imageState = [...imageList].map((image, index) => ({
-			...image,
-			id: index,
-			imageName: "The cat meows at midnight",
-			clicked: false
-		}))
-		setImageState(imageState)
-	}
 
 	var fadeOutTimer = 500
 	var fadeInTimer = 1000
@@ -63,12 +51,6 @@ function Wrapper(props) {
 				const newImageState = imageState
 				newImageState[clickedImageIndex].clicked = true
 				setImageState(newImageState)
-
-				// shuffle image array
-				setTimeout(() => {
-					const shuffledImageState = shuffleArray(imageState)
-					setImageState(shuffleArray(shuffledImageState))
-				}, fadeOutTimer)
 			}
 			// u lose
 			else {
@@ -78,10 +60,14 @@ function Wrapper(props) {
 				const resetScoreState = props.scoreState
 				resetScoreState.currentScore = 0
 				props.setScoreState(resetScoreState)
-
-				initImages()
 			}
 			props.setnavbarState(userChoice)
+
+			// shuffle image array
+			setTimeout(() => {
+				const shuffledImageState = shuffleArray(imageState)
+				setImageState(shuffleArray(shuffledImageState))
+			}, fadeOutTimer)
 		}
 	}
 

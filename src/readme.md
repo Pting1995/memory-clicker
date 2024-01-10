@@ -16,6 +16,7 @@ Runs script to publish to gh-pages
 
 todo: 
 
+imageState not correctly resetting after losing
 add a single image option
 fix header timer
 add cat api

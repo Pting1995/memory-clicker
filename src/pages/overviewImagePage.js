@@ -3,7 +3,7 @@ import React from "react";
 import Wrapper from "../components/Wrapper.js"
 
 function OverviewImagePage(props) {
-	console.log(props)
+	// console.log(props)
 	return (
 		<>
 			<Wrapper
