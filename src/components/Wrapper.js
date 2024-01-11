@@ -60,13 +60,15 @@ function Wrapper(props) {
 				const resetScoreState = props.scoreState
 				resetScoreState.currentScore = 0
 				props.setScoreState(resetScoreState)
+
+				initImages(setImageState)
 			}
 			props.setnavbarState(userChoice)
 
 			// shuffle image array
 			setTimeout(() => {
 				const shuffledImageState = shuffleArray(imageState)
-				setImageState(shuffleArray(shuffledImageState))
+				setImageState(shuffledImageState)
 			}, fadeOutTimer)
 		}
 	}
