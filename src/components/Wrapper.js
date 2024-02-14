@@ -15,7 +15,7 @@ function Wrapper(props) {
 	const [imageAnimation, setImageAnimation] = useState("fade-in")
 
 	useEffect(() => {
-		setImageState(initImages)
+		setImageState(initImages())
 	}, [])
 
 	var fadeOutTimer = 500
@@ -36,6 +36,8 @@ function Wrapper(props) {
 		if (imageClickState === false) {
 			var userChoice;
 
+			var nextImageState = []
+
 			setImageClickState(true)
 
 			setImageAnimation("fade-out")
@@ -48,9 +50,8 @@ function Wrapper(props) {
 				scoreIncrementer(props.scoreState, props.setScoreState)
 
 				// update clicked to true
-				const newImageState = imageState
-				newImageState[clickedImageIndex].clicked = true
-				setImageState(newImageState)
+				nextImageState = imageState
+				nextImageState[clickedImageIndex].clicked = true
 			}
 			// u lose
 			else {
@@ -61,15 +62,16 @@ function Wrapper(props) {
 				resetScoreState.currentScore = 0
 				props.setScoreState(resetScoreState)
 
-				setImageState(initImages)
+				nextImageState = initImages()
 			}
 			props.setnavbarState(userChoice)
 
 			// shuffle image array
 			setTimeout(() => {
-				const shuffledImageState = shuffleArray(imageState)
-				setImageState(shuffledImageState)
+				nextImageState = shuffleArray(nextImageState)
+				setImageState(nextImageState)
 			}, fadeOutTimer)
+			console.log(imageState)
 		}
 	}
 
