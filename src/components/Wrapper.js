@@ -15,7 +15,7 @@ function Wrapper(props) {
 	const [imageAnimation, setImageAnimation] = useState("fade-in")
 
 	useEffect(() => {
-		initImages(setImageState)
+		setImageState(initImages)
 	}, [])
 
 	var fadeOutTimer = 500
@@ -61,7 +61,7 @@ function Wrapper(props) {
 				resetScoreState.currentScore = 0
 				props.setScoreState(resetScoreState)
 
-				initImages(setImageState)
+				setImageState(initImages)
 			}
 			props.setnavbarState(userChoice)
 
