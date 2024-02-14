@@ -1,21 +1,15 @@
 {
   "files": {
-    "main.css": "/memory-clicker/static/css/main.db0613ce.chunk.css",
-    "main.js": "/memory-clicker/static/js/main.22550eaf.chunk.js",
-    "main.js.map": "/memory-clicker/static/js/main.22550eaf.chunk.js.map",
-    "runtime-main.js": "/memory-clicker/static/js/runtime-main.5c242d4a.js",
-    "runtime-main.js.map": "/memory-clicker/static/js/runtime-main.5c242d4a.js.map",
-    "static/js/2.17d09a82.chunk.js": "/memory-clicker/static/js/2.17d09a82.chunk.js",
-    "static/js/2.17d09a82.chunk.js.map": "/memory-clicker/static/js/2.17d09a82.chunk.js.map",
+    "main.css": "/memory-clicker/static/css/main.5fae816e.css",
+    "main.js": "/memory-clicker/static/js/main.df5b2b87.js",
+    "static/media/get-meowtta-here.webp": "/memory-clicker/static/media/get-meowtta-here.2a9bfbc376f99ee8bb42.webp",
+    "static/media/quicksand.woff2": "/memory-clicker/static/media/quicksand.d71cb2a4b837b43bbad5.woff2",
     "index.html": "/memory-clicker/index.html",
-    "static/css/main.db0613ce.chunk.css.map": "/memory-clicker/static/css/main.db0613ce.chunk.css.map",
-    "static/js/2.17d09a82.chunk.js.LICENSE.txt": "/memory-clicker/static/js/2.17d09a82.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/memory-clicker/static/media/quicksand.d71cb2a4.woff2"
+    "main.5fae816e.css.map": "/memory-clicker/static/css/main.5fae816e.css.map",
+    "main.df5b2b87.js.map": "/memory-clicker/static/js/main.df5b2b87.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.5c242d4a.js",
-    "static/js/2.17d09a82.chunk.js",
-    "static/css/main.db0613ce.chunk.css",
-    "static/js/main.22550eaf.chunk.js"
+    "static/css/main.5fae816e.css",
+    "static/js/main.df5b2b87.js"
   ]
 }
