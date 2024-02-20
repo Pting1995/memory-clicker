@@ -54,6 +54,12 @@ p {
 	display: flex;
 }
 
+@media screen and (max-width: 767px) {
+	#root {
+		display: block;
+	}
+}
+
 .side-bar {
 	position: sticky;
 	top: 0;
@@ -67,6 +73,13 @@ p {
 
 	padding: 1rem;
 	margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+	.side-bar {
+		position: relative;
+		height: auto;
+	}
 }
 
 h1 {
