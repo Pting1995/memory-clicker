@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CatCard from "./CatCard.js"
 
 import initImages from "../helpers/initImages.js";
-import scoreIncrementer from "../helpers/scoreIncrementer";
+import { handleCorrectChoice, handleIncorrectChoice } from "../helpers/choiceHandler.js"
 import shuffleArray from "../helpers/shuffleArray";
 import timeoutHandler from "../helpers/timeoutHandler.js";
 
@@ -34,44 +34,31 @@ function Wrapper(props) {
 
 	const imageClickHandler = (id) => {
 		if (imageClickState === false) {
-			var userChoice;
-
 			var nextImageState = []
-
-			setImageClickState(true)
-
-			setImageAnimation("fade-out")
-
+			var userChoice;
 			var clickedImageIndex = imageState.findIndex((image) => image.id === id)
 
+			setImageClickState(true)
+			setImageAnimation("fade-out")
+
 			if (imageState[clickedImageIndex].clicked === false) {
+				nextImageState = handleCorrectChoice(clickedImageIndex, imageState, props)
+
 				userChoice = "correct"
-
-				scoreIncrementer(props.scoreState, props.setScoreState)
-
-				// update clicked to true
-				nextImageState = imageState
-				nextImageState[clickedImageIndex].clicked = true
 			}
-			// u lose
+			// lose condition
 			else {
+				nextImageState = handleIncorrectChoice(props)
+
 				userChoice = "incorrect"
-
-				// keep highscore, reset currentScore
-				const resetScoreState = props.scoreState
-				resetScoreState.currentScore = 0
-				props.setScoreState(resetScoreState)
-
-				nextImageState = initImages()
 			}
 			props.setnavbarState(userChoice)
 
-			// shuffle image array
+			// shuffle image array after fade out
 			setTimeout(() => {
 				nextImageState = shuffleArray(nextImageState)
 				setImageState(nextImageState)
 			}, fadeOutTimer)
-			console.log(imageState)
 		}
 	}
 
