@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import timeoutHandler from "../helpers/timeoutHandler";
 
 function Navbar(props) {
 	useEffect(() => {
 		if (props.navbarState === "correct" || props.navbarState === "incorrect") {
-			timeoutHandler(props.setnavbarState, "default", 1500)
+			timeoutHandler(props.setNavbarState, "default", 1500)
 		}
-	}, [props.navbarState])
+	}, [props.navbarState, props.setNavbarState])
 
 	// console.log(props)
 

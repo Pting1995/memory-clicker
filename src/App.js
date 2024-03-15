@@ -13,7 +13,7 @@ function App() {
 		highScore: 0
 	})
 
-	const [navbarState, setnavbarState] = useState("initial")
+	const [navbarState, setNavbarState] = useState("initial")
 
 	const router = createBrowserRouter([
 		{
@@ -26,7 +26,7 @@ function App() {
 						scoreState={scoreState}
 						setScoreState={setScoreState}
 						navbarState={navbarState}
-						setnavbarState={setnavbarState}
+						setNavbarState={setNavbarState}
 					/>
 				},
 				// {
@@ -45,7 +45,7 @@ function App() {
 					scoreState={scoreState}
 					setScoreState={setScoreState}
 					navbarState={navbarState}
-					setnavbarState={setnavbarState}
+					setNavbarState={setNavbarState}
 				/>
 				<RouterProvider
 					router={router}

@@ -3,20 +3,18 @@ import { useState, useEffect } from "react";
 import CatCard from "./CatCard.js"
 
 import initImages from "../helpers/initImages.js";
-import { handleCorrectChoice, handleIncorrectChoice } from "../helpers/choiceHandler.js"
-import shuffleArray from "../helpers/shuffleArray";
 import timeoutHandler from "../helpers/timeoutHandler.js";
 
 function Wrapper(props) {
-	const [imageState, setImageState] = useState([])
+	const [imageState, setImageState] = useState([]);
 
-	const [imageClickState, setImageClickState] = useState(false)
+	const [imageClickState, setImageClickState] = useState(false);
 
-	const [imageAnimation, setImageAnimation] = useState("fade-in")
+	const [imageAnimation, setImageAnimation] = useState("fade-in");
 
 	useEffect(() => {
 		setImageState(initImages())
-	}, [])
+	}, [setImageState])
 
 	var fadeOutTimer = 500
 	var fadeInTimer = 1000
@@ -26,41 +24,11 @@ function Wrapper(props) {
 		if (imageClickState === true) {
 			timeoutHandler(setImageClickState, false, totalFadeTimer)
 		}
-	}, [imageClickState, totalFadeTimer])
+	}, [imageClickState, setImageClickState, totalFadeTimer])
 
 	useEffect(() => {
 		timeoutHandler(setImageAnimation, "fade-in", fadeOutTimer)
-	}, [imageAnimation, fadeOutTimer])
-
-	const imageClickHandler = (id) => {
-		if (imageClickState === false) {
-			var nextImageState = []
-			var userChoice;
-			var clickedImageIndex = imageState.findIndex((image) => image.id === id)
-
-			setImageClickState(true)
-			setImageAnimation("fade-out")
-
-			if (imageState[clickedImageIndex].clicked === false) {
-				nextImageState = handleCorrectChoice(clickedImageIndex, imageState, props)
-
-				userChoice = "correct"
-			}
-			// lose condition
-			else {
-				nextImageState = handleIncorrectChoice(props)
-
-				userChoice = "incorrect"
-			}
-			props.setnavbarState(userChoice)
-
-			// shuffle image array after fade out
-			setTimeout(() => {
-				nextImageState = shuffleArray(nextImageState)
-				setImageState(nextImageState)
-			}, fadeOutTimer)
-		}
-	}
+	}, [imageAnimation, setImageAnimation, fadeOutTimer])
 
 	// console.log(props)
 	return (
@@ -69,9 +37,15 @@ function Wrapper(props) {
 				return (<CatCard
 					key={index}
 					{...image}
+					imageState={imageState}
+					setImageState={setImageState}
 					imageClickState={imageClickState}
+					setImageClickState={setImageClickState}
 					imageAnimation={imageAnimation}
-					imageClickHandler={imageClickHandler}
+					setImageAnimation={setImageAnimation}
+					scoreState={props.scoreState}
+					setScoreState={props.setScoreState}
+					setNavbarState={props.setNavbarState}
 				/>)
 			})}
 		</section>
