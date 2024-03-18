@@ -17,7 +17,6 @@ Runs script to publish to gh-pages
 todo: 
 
 add a single image option
-fix header timer
 
 create an api server to POST highscores. Maybe GET to populate a highscores stats page?
 
@@ -25,6 +24,7 @@ add cat api
 add switch between cat api and legacy images
 
 figure out better host for images - maybe? needs more testing
+fix header timer <- i think this is fixed
 
 https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t
 https://thecatapi.com/
