@@ -4,7 +4,7 @@ import initImages from "./initImages.js";
 import shuffleArray from "./shuffleArray.js";
 
 export const imageClickHandler = (id, props) => {
-	console.log(props)
+	// console.log(props)
 	if (props.imageClickState === false) {
 		var nextImageState = []
 		var userChoice;

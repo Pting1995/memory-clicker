@@ -43,6 +43,7 @@ function Wrapper(props) {
 					setImageClickState={setImageClickState}
 					imageAnimation={imageAnimation}
 					setImageAnimation={setImageAnimation}
+					fadeOutTimer={fadeOutTimer}
 					scoreState={props.scoreState}
 					setScoreState={props.setScoreState}
 					setNavbarState={props.setNavbarState}
