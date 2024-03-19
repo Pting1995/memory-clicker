@@ -1,7 +1,7 @@
 import scoreIncrementer from "./scoreIncrementer.js";
 import scoreResetter from "./scoreResetter.js"
 import initImages from "./initImages.js";
-import shuffleArray from "./shuffleArray.js";
+import { shuffleArrayState } from "./shuffleArray.js";
 
 export const imageClickHandler = (id, props) => {
 	// console.log(props)
@@ -28,8 +28,7 @@ export const imageClickHandler = (id, props) => {
 
 		// shuffle image array after fade out
 		setTimeout(() => {
-			nextImageState = shuffleArray(nextImageState)
-			props.setImageState(nextImageState)
+			shuffleArrayState(nextImageState, props.setImageState)
 		}, props.fadeOutTimer)
 	}
 }

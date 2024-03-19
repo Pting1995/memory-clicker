@@ -4,7 +4,7 @@ import CatCard from "../components/CatCard.js"
 
 import initImages from "../helpers/initImages.js";
 import timeoutHandler from "../helpers/timeoutHandler.js";
-import shuffleArray from "../helpers/shuffleArray.js";
+import { shuffleArrayState } from "../helpers/shuffleArray.js";
 
 function SingleImagePage(props) {
 	const [imageState, setImageState] = useState([]);
@@ -34,6 +34,15 @@ function SingleImagePage(props) {
 		timeoutHandler(setImageAnimation, "fade-in", fadeOutTimer)
 	}, [imageAnimation, setImageAnimation, fadeOutTimer])
 	// console.log(props)
+
+	const shuffleImageArray = () => {
+		setImageAnimation("fade-out")
+
+		setTimeout(() => {
+			shuffleArrayState(imageState, setImageState)
+		}, fadeOutTimer)
+	}
+
 	return (
 		<>
 			<section className="cat-catalogue">
@@ -54,7 +63,7 @@ function SingleImagePage(props) {
 				/>
 			</section>
 			{/* <button onClick>This is a new cat</button> */}
-			{/* <button onClick={() => shuffleArray(imageState)}>Shuffle Cat</button > */}
+			<button onClick={() => { shuffleImageArray() }}>Shuffle Cat</button >
 		</>
 	);
 }

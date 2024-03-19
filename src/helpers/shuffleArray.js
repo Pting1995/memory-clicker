@@ -1,4 +1,4 @@
-const shuffleArray = (array) => {
+export const shuffleArray = (array) => {
 	let currentIndex = array.length
 	let randomIndex;
 
@@ -11,4 +11,8 @@ const shuffleArray = (array) => {
 	return array;
 }
 
-export default shuffleArray;
+export const shuffleArrayState = (array, setState) => {
+	let nextState = [...array]
+	shuffleArray(nextState)
+	setState(nextState)
+}
