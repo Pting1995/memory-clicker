@@ -6,9 +6,9 @@ import shuffleArray from "./shuffleArray.js";
 export const imageClickHandler = (id, props) => {
 	// console.log(props)
 	if (props.imageClickState === false) {
-		var nextImageState = []
-		var userChoice;
-		var clickedImageIndex = props.imageState.findIndex((image) => image.id === id)
+		let nextImageState = []
+		let userChoice;
+		let clickedImageIndex = props.imageState.findIndex((image) => image.id === id)
 
 		props.setImageClickState(true)
 		props.setImageAnimation("fade-out")

@@ -194,7 +194,7 @@ section {
 	box-sizing: content-box;
 }
 
-.cat-box:hover .cat-image {
+.cat-box.hover-text:hover .cat-image {
 	opacity: .5;
 }
 

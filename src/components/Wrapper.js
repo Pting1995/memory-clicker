@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 
 import CatCard from "./CatCard.js"
 
-import initImages from "../helpers/initImages.js";
-import timeoutHandler from "../helpers/timeoutHandler.js";
-
 function Wrapper(props) {
 	const [imageState, setImageState] = useState([]);
 

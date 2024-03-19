@@ -1,5 +1,5 @@
 const scoreIncrementer = (scoreState, setScoreState) => {
-	var newScore = scoreState.currentScore + 1;
+	let newScore = scoreState.currentScore + 1;
 	if (newScore > scoreState.highScore) {
 		setScoreState({
 			currentScore: newScore,

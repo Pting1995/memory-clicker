@@ -1,7 +1,7 @@
 import imageList from "../components/images.json"
 
 const initImages = () => {
-	var cleanImageArr = []
+	let cleanImageArr = []
 	cleanImageArr = [...imageList].map((image, index) => ({
 		...image,
 		id: index,
