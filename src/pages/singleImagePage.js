@@ -16,7 +16,7 @@ function SingleImagePage(props) {
 	const [imageAnimation, setImageAnimation] = useState("fade-in");
 
 	let fadeOutTimer = 500
-	let fadeInTimer = 500
+	let fadeInTimer = 1000
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
 	let imageSize = 400
@@ -30,7 +30,7 @@ function SingleImagePage(props) {
 	}, [setNavbarState])
 
 	useEffect(() => {
-		if (navbarState === "correct" || navbarState === "incorrect") {
+		if (navbarState === "correct" || navbarState === "incorrect" || navbarState === "shuffle") {
 			timeoutHandler(setNavbarState, "default", totalFadeTimer)
 		}
 	}, [navbarState, setNavbarState, totalFadeTimer])
@@ -48,6 +48,8 @@ function SingleImagePage(props) {
 
 	const shuffleImageArray = () => {
 		setImageAnimation("fade-out")
+
+		setNavbarState("shuffle")
 
 		setTimeout(() => {
 			shuffleArrayState(imageState, setImageState)
@@ -71,9 +73,9 @@ function SingleImagePage(props) {
 					setScoreState={props.setScoreState}
 					setNavbarState={props.setNavbarState}
 				/>
-			</section>
-			{/* <button onClick>This is a new cat</button> */}
-			<button onClick={() => { shuffleImageArray() }}>Shuffle Cat</button >
+
+			</section >
+			<button className="btn" onClick={() => { shuffleImageArray() }}>Shuffle Cat</button >
 		</>
 	);
 }

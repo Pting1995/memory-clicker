@@ -47,7 +47,6 @@ function App() {
 									setNavbarState={setNavbarState}
 								/>} />
 							</Routes>
-
 						</main>
 					</>
 				}>

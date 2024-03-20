@@ -16,10 +16,7 @@ Runs script to publish to gh-pages
 
 todo: 
 
-add a single image option
-	style button
-add navbar buttons
-
+Think about consolidating overview and single image pages
 create win condition
 
 create an api server to: 
