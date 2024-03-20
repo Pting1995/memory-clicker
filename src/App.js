@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/NavBar.js"
 import Sidebar from "./components/SideBar.js"
@@ -17,41 +17,43 @@ function App() {
 
 	const [navbarState, setNavbarState] = useState("initial")
 
-	const router = createBrowserRouter(
-		createRoutesFromElements(
-			<Route path="/memory-clicker" errorElement={<ErrorPage />} >
-				<Route path="" element={<OverviewImagePage
-					scoreState={scoreState}
-					setScoreState={setScoreState}
-					navbarState={navbarState}
-					setNavbarState={setNavbarState}
-				/>} />
-				<Route path="featured" element={<SingleImagePage
-					scoreState={scoreState}
-					setScoreState={setScoreState}
-					navbarState={navbarState}
-					setNavbarState={setNavbarState}
-				/>} />
-			</Route>
-		)
-	);
-
 	return (
-		<>
-			<Sidebar />
-			<main>
-				<Navbar
-					scoreState={scoreState}
-					setScoreState={setScoreState}
-					navbarState={navbarState}
-					setNavbarState={setNavbarState}
-				/>
-				<RouterProvider
-					router={router}
-				/>
-			</main>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/memory-clicker/*" errorElement={<ErrorPage />} element={
+					<>
+						<Sidebar
+							scoreState={scoreState}
+							setScoreState={setScoreState}
+							navbarState={navbarState}
+							setNavbarState={setNavbarState} />
+						<main>
+							<Navbar
+								scoreState={scoreState}
+								setScoreState={setScoreState}
+								navbarState={navbarState}
+								setNavbarState={setNavbarState} />
+							<Routes>
+								<Route path="" element={<OverviewImagePage
+									scoreState={scoreState}
+									setScoreState={setScoreState}
+									navbarState={navbarState}
+									setNavbarState={setNavbarState}
+								/>} />
+								<Route path="/featured" element={<SingleImagePage
+									scoreState={scoreState}
+									setScoreState={setScoreState}
+									navbarState={navbarState}
+									setNavbarState={setNavbarState}
+								/>} />
+							</Routes>
 
-		</>
+						</main>
+					</>
+				}>
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	);
 }
 export default App;
