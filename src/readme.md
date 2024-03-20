@@ -17,10 +17,10 @@ Runs script to publish to gh-pages
 todo: 
 
 add a single image option
-	single cat page - image should not be clickable
-	put game logic in button instead
 	style button
 add navbar buttons
+
+create win condition
 
 create an api server to: 
 	POST highscores. 

@@ -7,6 +7,8 @@ import timeoutHandler from "../helpers/timeoutHandler.js";
 import { shuffleArrayState } from "../helpers/shuffleArray.js";
 
 function SingleImagePage(props) {
+	const { navbarState, setNavbarState } = props
+
 	const [imageState, setImageState] = useState([]);
 
 	const [imageClickState, setImageClickState] = useState(false);
@@ -14,7 +16,7 @@ function SingleImagePage(props) {
 	const [imageAnimation, setImageAnimation] = useState("fade-in");
 
 	let fadeOutTimer = 500
-	let fadeInTimer = 1000
+	let fadeInTimer = 500
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
 	let imageSize = 400
@@ -24,8 +26,14 @@ function SingleImagePage(props) {
 	}, [setImageState])
 
 	useEffect(() => {
-		props.setNavbarState(`initial2`)
-	})
+		setNavbarState(`initial2`)
+	}, [setNavbarState])
+
+	useEffect(() => {
+		if (navbarState === "correct" || navbarState === "incorrect") {
+			timeoutHandler(setNavbarState, "default", totalFadeTimer)
+		}
+	}, [navbarState, setNavbarState, totalFadeTimer])
 
 	useEffect(() => {
 		if (imageClickState === true) {

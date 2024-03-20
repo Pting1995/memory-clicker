@@ -6,21 +6,29 @@ import initImages from "../helpers/initImages.js";
 import timeoutHandler from "../helpers/timeoutHandler.js";
 
 function OverviewImagePage(props) {
+	const { navbarState, setNavbarState } = props
+
 	const [imageState, setImageState] = useState([]);
 
 	const [imageClickState, setImageClickState] = useState(false);
 
 	const [imageAnimation, setImageAnimation] = useState("fade-in");
 
-	useEffect(() => {
-		setImageState(initImages())
-	}, [setImageState])
-
 	let fadeOutTimer = 500
 	let fadeInTimer = 1000
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
 	let imageSize = 250
+
+	useEffect(() => {
+		setImageState(initImages())
+	}, [setImageState])
+
+	useEffect(() => {
+		if (navbarState === "correct" || navbarState === "incorrect") {
+			timeoutHandler(setNavbarState, "default", totalFadeTimer)
+		}
+	}, [navbarState, setNavbarState, totalFadeTimer])
 
 	useEffect(() => {
 		if (imageClickState === true) {
