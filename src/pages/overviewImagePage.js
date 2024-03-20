@@ -4,6 +4,7 @@ import CatCard from "../components/CatCard.js"
 
 import initImages from "../helpers/initImages.js";
 import timeoutHandler from "../helpers/timeoutHandler.js";
+import { shuffleArrayState } from "../helpers/shuffleArray.js";
 
 function OverviewImagePage(props) {
 	const { navbarState, setNavbarState } = props
@@ -21,8 +22,8 @@ function OverviewImagePage(props) {
 	let imageSize = 250
 
 	useEffect(() => {
-		setImageState(initImages())
-	}, [setImageState])
+		shuffleArrayState(initImages(), setImageState)
+	}, [])
 
 	useEffect(() => {
 		if (navbarState === "correct" || navbarState === "incorrect") {

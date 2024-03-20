@@ -22,8 +22,8 @@ function SingleImagePage(props) {
 	let imageSize = 400
 
 	useEffect(() => {
-		setImageState(initImages())
-	}, [setImageState])
+		shuffleArrayState(initImages(), setImageState)
+	}, [])
 
 	useEffect(() => {
 		setNavbarState(`initial2`)
