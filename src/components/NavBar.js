@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import timeoutHandler from "../helpers/timeoutHandler";
+import react from "react";
 
 function Navbar(props) {
 	let navbarText = {
