@@ -20,7 +20,6 @@ function OverviewImagePage(props) {
 	let fadeInTimer = 1000
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
-	let hoverText = true
 	let imageSize = 250
 
 	useEffect(() => {
@@ -41,7 +40,6 @@ function OverviewImagePage(props) {
 						key={index}
 						{...image}
 						imageState={imageState}
-						hoverText={hoverText}
 						imageSize={imageSize}
 						setImageState={setImageState}
 						imageClickState={imageClickState}

@@ -17,7 +17,6 @@ function SingleImagePage(props) {
 	let fadeInTimer = 1000
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
-	let hoverText = false
 	let imageSize = 400
 
 	useEffect(() => {
@@ -53,7 +52,6 @@ function SingleImagePage(props) {
 				<CatCard
 					{...imageState[0]}
 					imageState={imageState}
-					hoverText={hoverText}
 					imageSize={imageSize}
 					setImageState={setImageState}
 					imageClickState={imageClickState}

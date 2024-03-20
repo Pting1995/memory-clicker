@@ -160,7 +160,7 @@ section {
 }
 
 .fade-in {
-	animation-name: fade-in;
+	animation-name: full-opacity;
 	animation-duration: 1s;
 	opacity: 0;
 	animation-direction: normal;
@@ -168,14 +168,14 @@ section {
 	animation-timing-function: ease-in;
 }
 
-@keyframes fade-in {
+@keyframes full-opacity {
 	to {
 		opacity: 1;
 	}
 }
 
 .fade-out {
-	animation-name: fade-out;
+	animation-name: no-opacity;
 	animation-duration: .5s;
 	opacity: 1;
 	animation-direction: normal;
@@ -183,7 +183,7 @@ section {
 	animation-timing-function: ease-in;
 }
 
-@keyframes fade-out {
+@keyframes no-opacity {
 	to {
 		opacity: 0;
 	}
@@ -194,21 +194,38 @@ section {
 	box-sizing: content-box;
 }
 
-.cat-box.hover-text:hover .cat-image {
-	opacity: .5;
+@media screen and (min-width: 768px) {
+	.cat-box:hover .cat-image {
+		opacity: 1;
+		animation-name: half-opacity;
+		animation-duration: .5s;
+		animation-direction: normal;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+	}
+
+	figure:hover .cat-description {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		position: absolute;
+		bottom: 0;
+
+		width: 100%;
+		height: 100%;
+	}
 }
 
-figure:hover .cat-description {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 
-	position: absolute;
-	bottom: 0;
 
-	width: 100%;
-	height: 100%;
+@keyframes half-opacity {
+	to {
+		opacity: .6;
+	}
 }
+
+
 
 figure .cat-description {
 	display: none;
