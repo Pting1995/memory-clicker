@@ -7,7 +7,6 @@ export const imageClickHandler = (id, props) => {
 	// console.log(props)
 	if (props.imageClickState === false) {
 		let nextImageState = []
-		let userChoice;
 		let clickedImageIndex = props.imageState.findIndex((image) => image.id === id)
 
 		props.setImageClickState(true)
@@ -16,15 +15,14 @@ export const imageClickHandler = (id, props) => {
 		if (props.imageState[clickedImageIndex].clicked === false) {
 			nextImageState = handleCorrectChoice(clickedImageIndex, props.imageState, props.scoreState, props.setScoreState)
 
-			userChoice = "correct"
+			props.setNavbarState("correct")
 		}
 		// lose condition
 		else {
 			nextImageState = handleIncorrectChoice(props.scoreState, props.setScoreState)
 
-			userChoice = "incorrect"
+			props.setNavbarState("incorrect")
 		}
-		props.setNavbarState(userChoice)
 
 		// shuffle image array after fade out
 		setTimeout(() => {

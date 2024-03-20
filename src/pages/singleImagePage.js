@@ -13,16 +13,20 @@ function SingleImagePage(props) {
 
 	const [imageAnimation, setImageAnimation] = useState("fade-in");
 
-	useEffect(() => {
-		setImageState(initImages())
-	}, [setImageState])
-
 	let fadeOutTimer = 500
 	let fadeInTimer = 1000
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
 	let hoverText = false
 	let imageSize = 400
+
+	useEffect(() => {
+		setImageState(initImages())
+	}, [setImageState])
+
+	useEffect(() => {
+		props.setNavbarState(`initial2`)
+	})
 
 	useEffect(() => {
 		if (imageClickState === true) {
