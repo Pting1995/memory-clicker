@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import CatCard from "../components/CatCard.js"
 
-import initImages from "../helpers/initImages.js";
 import timeoutHandler from "../helpers/timeoutHandler.js";
 import { shuffleArrayState } from "../helpers/shuffleArray.js";
 
