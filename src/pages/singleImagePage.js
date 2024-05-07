@@ -9,8 +9,6 @@ import { shuffleArrayState } from "../helpers/shuffleArray.js";
 function SingleImagePage(props) {
 	const { navbarState, setNavbarState } = props
 
-	const [imageState, setImageState] = useState([]);
-
 	const [imageClickState, setImageClickState] = useState(false);
 
 	const [imageAnimation, setImageAnimation] = useState("fade-in");
@@ -20,10 +18,6 @@ function SingleImagePage(props) {
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
 	let imageSize = 400
-
-	useEffect(() => {
-		shuffleArrayState(initImages(), setImageState)
-	}, [])
 
 	useEffect(() => {
 		setNavbarState(`initial2`)
@@ -44,7 +38,6 @@ function SingleImagePage(props) {
 	useEffect(() => {
 		timeoutHandler(setImageAnimation, "fade-in", fadeOutTimer)
 	}, [imageAnimation, setImageAnimation, fadeOutTimer])
-	// console.log(props)
 
 	const shuffleImageArray = () => {
 		setImageAnimation("fade-out")
@@ -52,18 +45,19 @@ function SingleImagePage(props) {
 		setNavbarState("shuffle")
 
 		setTimeout(() => {
-			shuffleArrayState(imageState, setImageState)
+			shuffleArrayState(props.imageState, props.setImageState)
 		}, fadeOutTimer)
 	}
+	console.log(props)
 
 	return (
 		<>
 			<section className="cat-catalogue flex-column">
 				<CatCard
-					{...imageState[0]}
-					imageState={imageState}
+					{...props.imageState[0]}
 					imageSize={imageSize}
-					setImageState={setImageState}
+					imageState={props.imageState}
+					setImageState={props.setImageState}
 					imageClickState={imageClickState}
 					setImageClickState={setImageClickState}
 					imageAnimation={imageAnimation}

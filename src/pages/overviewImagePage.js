@@ -2,14 +2,11 @@ import { useState, useEffect } from "react";
 
 import CatCard from "../components/CatCard.js"
 
-import initImages from "../helpers/initImages.js";
 import timeoutHandler from "../helpers/timeoutHandler.js";
-import { shuffleArrayState } from "../helpers/shuffleArray.js";
 
 function OverviewImagePage(props) {
+	console.log(props.imageState)
 	const { navbarState, setNavbarState } = props
-
-	const [imageState, setImageState] = useState([]);
 
 	const [imageClickState, setImageClickState] = useState(false);
 
@@ -20,10 +17,6 @@ function OverviewImagePage(props) {
 	let totalFadeTimer = fadeOutTimer + fadeInTimer
 
 	let imageSize = 250
-
-	useEffect(() => {
-		shuffleArrayState(initImages(), setImageState)
-	}, [])
 
 	useEffect(() => {
 		if (navbarState === "correct" || navbarState === "incorrect") {
@@ -44,13 +37,13 @@ function OverviewImagePage(props) {
 	return (
 		<>
 			<section className="cat-catalogue">
-				{imageState.map((image, index) => {
+				{props.imageState.map((image, index) => {
 					return (<CatCard
 						key={index}
 						{...image}
-						imageState={imageState}
 						imageSize={imageSize}
-						setImageState={setImageState}
+						imageState={props.imageState}
+						setImageState={props.setImageState}
 						imageClickState={imageClickState}
 						setImageClickState={setImageClickState}
 						imageAnimation={imageAnimation}

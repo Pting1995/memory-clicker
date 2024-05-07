@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/NavBar.js"
@@ -9,6 +9,9 @@ import SingleImagePage from "./pages/singleImagePage.js"
 // import DataPage from "./pages/dataPage.js"
 import ErrorPage from "./pages/errorPage.js"
 
+import initImages from "./helpers/initImages.js";
+import { shuffleArrayState } from "./helpers/shuffleArray.js";
+
 function App() {
 	const [scoreState, setScoreState] = useState({
 		currentScore: 0,
@@ -16,6 +19,12 @@ function App() {
 	})
 
 	const [navbarState, setNavbarState] = useState("initial")
+
+	const [imageState, setImageState] = useState([]);
+
+	useEffect(() => {
+		shuffleArrayState(initImages(), setImageState)
+	}, [])
 
 	return (
 		<BrowserRouter>
@@ -39,12 +48,16 @@ function App() {
 									setScoreState={setScoreState}
 									navbarState={navbarState}
 									setNavbarState={setNavbarState}
+									imageState={imageState}
+									setImageState={setImageState}
 								/>} />
 								<Route path="/featured" element={<SingleImagePage
 									scoreState={scoreState}
 									setScoreState={setScoreState}
 									navbarState={navbarState}
 									setNavbarState={setNavbarState}
+									imageState={imageState}
+									setImageState={setImageState}
 								/>} />
 							</Routes>
 						</main>
