@@ -250,6 +250,8 @@ figure .cat-description {
 	border-radius: 10px;
 
 	text-align: center;
+
+	cursor: pointer;
 }
 
 .shuffle-btn {
