@@ -58,7 +58,7 @@ function SingleImagePage(props) {
 
 	return (
 		<>
-			<section className="cat-catalogue">
+			<section className="cat-catalogue flex-column">
 				<CatCard
 					{...imageState[0]}
 					imageState={imageState}
@@ -73,9 +73,9 @@ function SingleImagePage(props) {
 					setScoreState={props.setScoreState}
 					setNavbarState={props.setNavbarState}
 				/>
-
+				<button className="btn shuffle-btn" onClick={() => { shuffleImageArray() }}>Shuffle Cat</button >
 			</section >
-			<button className="btn" onClick={() => { shuffleImageArray() }}>Shuffle Cat</button >
+
 		</>
 	);
 }

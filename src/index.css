@@ -159,6 +159,7 @@ section {
 /* cat image */
 .cat-box {
 	position: relative;
+	width: min-content;
 
 	margin: 0;
 	border: 2px cyan solid;
@@ -251,6 +252,15 @@ figure .cat-description {
 	text-align: center;
 }
 
+.shuffle-btn {
+	width: 400px;
+}
+
 .full-width {
 	width: 100%;
+}
+
+.flex-column {
+	flex-flow: column;
+	align-items: center;
 }
