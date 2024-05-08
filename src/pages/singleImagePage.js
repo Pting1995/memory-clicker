@@ -2,41 +2,20 @@ import { useState, useEffect } from "react";
 
 import CatCard from "../components/CatCard.js"
 
-import timeoutHandler from "../helpers/timeoutHandler.js";
 import { shuffleArrayState } from "../helpers/shuffleArray.js";
 
 function SingleImagePage(props) {
 	const { navbarState, setNavbarState } = props
 
-	const [imageClickState, setImageClickState] = useState(false);
+	const { imageAnimation, setImageAnimation } = props
 
-	const [imageAnimation, setImageAnimation] = useState("fade-in");
-
-	let fadeOutTimer = 500
-	let fadeInTimer = 1000
-	let totalFadeTimer = fadeOutTimer + fadeInTimer
+	const { fadeOutTimer } = props
 
 	let imageSize = 400
 
 	useEffect(() => {
 		setNavbarState(`initial2`)
 	}, [setNavbarState])
-
-	useEffect(() => {
-		if (navbarState === "correct" || navbarState === "incorrect" || navbarState === "shuffle") {
-			timeoutHandler(setNavbarState, "default", totalFadeTimer)
-		}
-	}, [navbarState, setNavbarState, totalFadeTimer])
-
-	useEffect(() => {
-		if (imageClickState === true) {
-			timeoutHandler(setImageClickState, false, totalFadeTimer)
-		}
-	}, [imageClickState, setImageClickState, totalFadeTimer])
-
-	useEffect(() => {
-		timeoutHandler(setImageAnimation, "fade-in", fadeOutTimer)
-	}, [imageAnimation, setImageAnimation, fadeOutTimer])
 
 	const shuffleImageArray = () => {
 		setImageAnimation("fade-out")
@@ -47,7 +26,8 @@ function SingleImagePage(props) {
 			shuffleArrayState(props.imageState, props.setImageState)
 		}, fadeOutTimer)
 	}
-	console.log(props)
+
+	// console.log(props)
 
 	return (
 		<>
@@ -57,11 +37,11 @@ function SingleImagePage(props) {
 					imageSize={imageSize}
 					imageState={props.imageState}
 					setImageState={props.setImageState}
-					imageClickState={imageClickState}
-					setImageClickState={setImageClickState}
-					imageAnimation={imageAnimation}
-					setImageAnimation={setImageAnimation}
-					fadeOutTimer={fadeOutTimer}
+					clickTimeOut={props.clickTimeOut}
+					setClickTimeOut={props.setClickTimeOut}
+					imageAnimation={props.imageAnimation}
+					setImageAnimation={props.setImageAnimation}
+					fadeOutTimer={props.fadeOutTimer}
 					scoreState={props.scoreState}
 					setScoreState={props.setScoreState}
 					setNavbarState={props.setNavbarState}

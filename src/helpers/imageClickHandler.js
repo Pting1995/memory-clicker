@@ -4,12 +4,12 @@ import initImages from "./initImages.js";
 import { shuffleArrayState } from "./shuffleArray.js";
 
 export const imageClickHandler = (id, props) => {
-	// console.log(props)
-	if (props.imageClickState === false) {
+	console.log(props)
+	if (props.clickTimeOut === false) {
 		let nextImageState = []
 		let clickedImageIndex = props.imageState.findIndex((image) => image.id === id)
 
-		props.setImageClickState(true)
+		props.setClickTimeOut(true)
 		props.setImageAnimation("fade-out")
 
 		if (props.imageState[clickedImageIndex].clicked === false) {

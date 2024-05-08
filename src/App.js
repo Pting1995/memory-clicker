@@ -9,6 +9,7 @@ import SingleImagePage from "./pages/singleImagePage.js"
 // import DataPage from "./pages/dataPage.js"
 import ErrorPage from "./pages/errorPage.js"
 
+import timeoutHandler from "./helpers/timeoutHandler.js";
 import initImages from "./helpers/initImages.js";
 import { shuffleArrayState } from "./helpers/shuffleArray.js";
 
@@ -22,9 +23,37 @@ function App() {
 
 	const [imageState, setImageState] = useState([]);
 
+	const [imageAnimation, setImageAnimation] = useState("fade-in");
+
+	const [clickTimeOut, setClickTimeOut] = useState(false);
+
+	let fadeOutTimer = 500
+	let fadeInTimer = 1000
+	let totalFadeTimer = fadeOutTimer + fadeInTimer
+
+	// initalize image array when page load
 	useEffect(() => {
 		shuffleArrayState(initImages(), setImageState)
 	}, [])
+
+	// play animation when a image is clicked
+	useEffect(() => {
+		timeoutHandler(setImageAnimation, "fade-in", fadeOutTimer)
+	}, [imageAnimation, setImageAnimation, fadeOutTimer])
+
+	// sets a click timeout
+	useEffect(() => {
+		if (clickTimeOut === true) {
+			timeoutHandler(setClickTimeOut, false, totalFadeTimer)
+		}
+	}, [clickTimeOut, setClickTimeOut, totalFadeTimer])
+
+	// set navbar back to default
+	useEffect(() => {
+		if (navbarState === "correct" || navbarState === "incorrect" || navbarState === "shuffle") {
+			timeoutHandler(setNavbarState, "default", totalFadeTimer)
+		}
+	}, [navbarState, setNavbarState, totalFadeTimer])
 
 	return (
 		<BrowserRouter>
@@ -50,6 +79,11 @@ function App() {
 									setNavbarState={setNavbarState}
 									imageState={imageState}
 									setImageState={setImageState}
+									imageAnimation={imageAnimation}
+									setImageAnimation={setImageAnimation}
+									fadeOutTimer={fadeOutTimer}
+									clickTimeOut={clickTimeOut}
+									setClickTimeOut={setClickTimeOut}
 								/>} />
 								<Route path="/featured" element={<SingleImagePage
 									scoreState={scoreState}
@@ -58,6 +92,11 @@ function App() {
 									setNavbarState={setNavbarState}
 									imageState={imageState}
 									setImageState={setImageState}
+									imageAnimation={imageAnimation}
+									setImageAnimation={setImageAnimation}
+									fadeOutTimer={fadeOutTimer}
+									clickTimeOut={clickTimeOut}
+									setClickTimeOut={setClickTimeOut}
 								/>} />
 							</Routes>
 						</main>
