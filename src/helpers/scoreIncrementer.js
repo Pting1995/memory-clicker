@@ -1,17 +1,11 @@
 const scoreIncrementer = (scoreState, setScoreState) => {
-	let newScore = scoreState.currentScore + 1;
-	if (newScore > scoreState.highScore) {
-		setScoreState({
-			currentScore: newScore,
-			highScore: newScore
-		})
-	}
-	else {
-		setScoreState({
-			...scoreState,
-			currentScore: newScore
-		})
-	}
+	const newScore = scoreState.currentScore + 1;
+	const newHighScore = Math.max(newScore, scoreState.highScore);
+
+	setScoreState({
+		currentScore: newScore,
+		highScore: newHighScore
+	});
 }
 
 export default scoreIncrementer;
