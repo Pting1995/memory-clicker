@@ -1,7 +1,9 @@
 const scoreResetter = (scoreState, setScoreState) => {
-	const resetScoreState = scoreState
-	resetScoreState.currentScore = 0
-	setScoreState(resetScoreState)
+	const newScoreState = {
+		...scoreState,
+		currentScore: 0
+	}
+	setScoreState(newScoreState)
 }
 
 export default scoreResetter;
