@@ -14,14 +14,15 @@ import initImages from "./helpers/initImages.js";
 import { shuffleArrayState } from "./helpers/shuffleArray.js";
 
 function App() {
+	const [imageState, setImageState] = useState([]);
+
 	const [scoreState, setScoreState] = useState({
+		maxScore: 20,
 		currentScore: 0,
 		highScore: 0
 	})
 
 	const [navbarState, setNavbarState] = useState("initial")
-
-	const [imageState, setImageState] = useState([]);
 
 	const [imageAnimation, setImageAnimation] = useState("fade-in");
 
@@ -64,13 +65,15 @@ function App() {
 							scoreState={scoreState}
 							setScoreState={setScoreState}
 							navbarState={navbarState}
-							setNavbarState={setNavbarState} />
+							setNavbarState={setNavbarState}
+						/>
 						<main>
 							<Navbar
 								scoreState={scoreState}
 								setScoreState={setScoreState}
 								navbarState={navbarState}
-								setNavbarState={setNavbarState} />
+								setNavbarState={setNavbarState}
+							/>
 							<Routes>
 								<Route path="" element={<OverviewImagePage
 									scoreState={scoreState}

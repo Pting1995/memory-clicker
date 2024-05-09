@@ -1,5 +1,3 @@
-import imageList from "../components/images.json"
-
 const initImages = () => {
 
 	let cleanImageArr = []

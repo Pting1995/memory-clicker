@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import CatCard from "../components/CatCard.js"
 
 import { shuffleArrayState } from "../helpers/shuffleArray.js";
 
 function SingleImagePage(props) {
-	const { navbarState, setNavbarState } = props
+	const { setNavbarState } = props
 
-	const { imageAnimation, setImageAnimation } = props
+	const { setImageAnimation } = props
 
 	const { fadeOutTimer } = props
 

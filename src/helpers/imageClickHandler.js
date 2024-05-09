@@ -4,22 +4,43 @@ import initImages from "./initImages.js";
 import { shuffleArrayState } from "./shuffleArray.js";
 
 export const imageClickHandler = (id, props) => {
-	console.log(props)
+	// console.log(props)
 	if (props.clickTimeOut === false) {
 		let nextImageState = []
+
 		let clickedImageIndex = props.imageState.findIndex((image) => image.id === id)
 
 		props.setClickTimeOut(true)
 		props.setImageAnimation("fade-out")
 
 		if (props.imageState[clickedImageIndex].clicked === false) {
-			nextImageState = handleCorrectChoice(clickedImageIndex, props.imageState, props.scoreState, props.setScoreState)
 
-			props.setNavbarState("correct")
+			scoreIncrementer(props.scoreState, props.setScoreState, (newScoreState) => {
+				console.log(props)
+				// Check win condition
+				if (newScoreState.maxScore === newScoreState.currentScore) {
+					nextImageState = initImages();
+
+					scoreResetter(newScoreState, props.setScoreState);
+
+					props.setNavbarState("win")
+				}
+
+				// continue game
+				else {
+					nextImageState = [...props.imageState];
+					nextImageState[clickedImageIndex].clicked = true;
+
+					props.setNavbarState("correct")
+				}
+			});
+
 		}
 		// lose condition
 		else {
-			nextImageState = handleIncorrectChoice(props.scoreState, props.setScoreState)
+			nextImageState = initImages();
+
+			scoreResetter(props.scoreState, props.setScoreState);
 
 			props.setNavbarState("incorrect")
 		}
@@ -30,18 +51,3 @@ export const imageClickHandler = (id, props) => {
 		}, props.fadeOutTimer)
 	}
 }
-
-const handleCorrectChoice = (clickedImageIndex, imageState, scoreState, setScoreState) => {
-	scoreIncrementer(scoreState, setScoreState);
-
-	const updatedImageState = [...imageState];
-	updatedImageState[clickedImageIndex].clicked = true;
-
-	return updatedImageState;
-};
-
-const handleIncorrectChoice = (scoreState, setScoreState) => {
-	scoreResetter(scoreState, setScoreState);
-
-	return initImages();
-};

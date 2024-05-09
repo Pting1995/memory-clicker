@@ -1,16 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import CatCard from "../components/CatCard.js"
 
-import timeoutHandler from "../helpers/timeoutHandler.js";
-
 function OverviewImagePage(props) {
 
-	const { navbarState, setNavbarState } = props
-
-	const { imageAnimation, setImageAnimation } = props
-
-	const { fadeOutTimer } = props
+	const { setNavbarState } = props
 
 	let imageSize = 250
 

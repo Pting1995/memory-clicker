@@ -16,7 +16,6 @@ Runs script to publish to gh-pages
 
 todo: 
 
-Think about consolidating overview and single image pages
 create win condition
 
 create an api server to: 

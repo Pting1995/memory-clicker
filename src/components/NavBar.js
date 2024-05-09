@@ -7,7 +7,8 @@ function Navbar(props) {
 		default: "Keep clicking cats you haven't clicked before!",
 		correct: "Correct!",
 		incorrect: "Incorrect, Sorry you lose! Your hiscore is " + props.scoreState.currentScore,
-		shuffle: "Every day im shufflin'"
+		shuffle: "Every day im shufflin'",
+		win: "Congratulations, you win!"
 	}
 
 	// console.log(props)
@@ -15,6 +16,7 @@ function Navbar(props) {
 		<nav className={props.navbarState}>
 			<p>{navbarText[props.navbarState]}</p>
 			<div>
+				<p>Winning Score: {props.scoreState.maxScore}</p>
 				<p>Session Hiscore: {props.scoreState.highScore}</p>
 				{props.navbarState === "correct" ? <p>Current Score: {props.scoreState.currentScore - 1} + 1 = {props.scoreState.currentScore}</p> : <p>Current Score: {props.scoreState.currentScore}</p>}
 			</div>
