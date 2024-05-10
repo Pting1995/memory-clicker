@@ -12,12 +12,13 @@ import ErrorPage from "./pages/errorPage.js"
 import timeoutHandler from "./helpers/timeoutHandler.js";
 import initImages from "./helpers/initImages.js";
 import { shuffleArrayState } from "./helpers/shuffleArray.js";
+import { checkMaxScore } from "./helpers/scoreHandler.js";
 
 function App() {
 	const [imageState, setImageState] = useState([]);
 
 	const [scoreState, setScoreState] = useState({
-		maxScore: 20,
+		maxScore: 100,
 		currentScore: 0,
 		highScore: 0
 	})
@@ -51,10 +52,14 @@ function App() {
 
 	// set navbar back to default
 	useEffect(() => {
-		if (navbarState === "correct" || navbarState === "incorrect" || navbarState === "shuffle") {
+		if (navbarState === "correct" || navbarState === "incorrect" || navbarState === "shuffle" || navbarState === "win") {
 			timeoutHandler(setNavbarState, "default", totalFadeTimer)
 		}
 	}, [navbarState, setNavbarState, totalFadeTimer])
+
+	useEffect(() => {
+		checkMaxScore(imageState.length, scoreState, setScoreState)
+	}, [imageState.length])
 
 	return (
 		<BrowserRouter>

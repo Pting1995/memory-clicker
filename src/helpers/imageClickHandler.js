@@ -1,5 +1,4 @@
-import scoreIncrementer from "./scoreIncrementer.js";
-import scoreResetter from "./scoreResetter.js"
+import { scoreResetter, scoreIncrementer } from "./scoreHandler.js"
 import initImages from "./initImages.js";
 import { shuffleArrayState } from "./shuffleArray.js";
 
@@ -8,33 +7,34 @@ export const imageClickHandler = (id, props) => {
 	if (props.clickTimeOut === false) {
 		let nextImageState = []
 
+		// do i need this
 		let clickedImageIndex = props.imageState.findIndex((image) => image.id === id)
 
 		props.setClickTimeOut(true)
 		props.setImageAnimation("fade-out")
 
+		//simplify?
 		if (props.imageState[clickedImageIndex].clicked === false) {
 
-			scoreIncrementer(props.scoreState, props.setScoreState, (newScoreState) => {
-				console.log(props)
-				// Check win condition
-				if (newScoreState.maxScore === newScoreState.currentScore) {
-					nextImageState = initImages();
+			scoreIncrementer(props.scoreState, props.setScoreState)
 
-					scoreResetter(newScoreState, props.setScoreState);
+			// Check win condition
+			if (props.scoreState.maxScore === props.scoreState.currentScore) {
 
-					props.setNavbarState("win")
-				}
+				nextImageState = initImages();
 
-				// continue game
-				else {
-					nextImageState = [...props.imageState];
-					nextImageState[clickedImageIndex].clicked = true;
+				scoreResetter(props.scoreState, props.setScoreState);
 
-					props.setNavbarState("correct")
-				}
-			});
+				props.setNavbarState("win")
+			}
 
+			// continue game
+			else {
+				nextImageState = [...props.imageState];
+				nextImageState[clickedImageIndex].clicked = true;
+
+				props.setNavbarState("correct")
+			}
 		}
 		// lose condition
 		else {
