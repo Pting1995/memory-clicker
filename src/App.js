@@ -19,8 +19,9 @@ function App() {
 
 	const [scoreState, setScoreState] = useState({
 		maxScore: 100,
+		highScore: 0,
 		currentScore: 0,
-		highScore: 0
+		priorScore: 0
 	})
 
 	const [navbarState, setNavbarState] = useState("initial")
@@ -57,8 +58,11 @@ function App() {
 		}
 	}, [navbarState, setNavbarState, totalFadeTimer])
 
+	// update maxScore when imageState length changes
 	useEffect(() => {
 		checkMaxScore(imageState.length, scoreState, setScoreState)
+		// function should only fire when imageState length changes - goes into a loop when scoreState is included in dependency array
+		// eslint-disable-next-line
 	}, [imageState.length])
 
 	return (

@@ -6,7 +6,7 @@ function Navbar(props) {
 		initial2: "Click each cat once! If you've seen this cat, press the \"Shuffle Cat\" button",
 		default: "Keep clicking cats you haven't clicked before!",
 		correct: "Correct!",
-		incorrect: "Incorrect, Sorry you lose! Your hiscore is " + props.scoreState.currentScore,
+		incorrect: "Incorrect, Sorry you lose! Your score was " + props.scoreState.priorScore,
 		shuffle: "Every day im shufflin'",
 		win: "Congratulations, you win!"
 	}

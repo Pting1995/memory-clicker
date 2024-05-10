@@ -1,11 +1,13 @@
 export const scoreIncrementer = (scoreState, setScoreState) => {
-	const newCurrentScore = scoreState.currentScore + 1;
+	const previousScore = scoreState.currentScore
+	const newCurrentScore = previousScore + 1;
 	const newHighScore = Math.max(newCurrentScore, scoreState.highScore);
 
 	const newScoreState = {
 		...scoreState,
+		highScore: newHighScore,
 		currentScore: newCurrentScore,
-		highScore: newHighScore
+		priorScore: previousScore
 	}
 
 	setScoreState(newScoreState)
@@ -14,7 +16,8 @@ export const scoreIncrementer = (scoreState, setScoreState) => {
 export const scoreResetter = (scoreState, setScoreState) => {
 	const newScoreState = {
 		...scoreState,
-		currentScore: 0
+		currentScore: 0,
+		priorScore: scoreState.currentScore
 	}
 	setScoreState(newScoreState)
 }
