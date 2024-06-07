@@ -13,6 +13,7 @@ import timeoutHandler from "./helpers/timeoutHandler.js";
 import initImages from "./helpers/initImages.js";
 import { shuffleArrayState } from "./helpers/shuffleArray.js";
 import { checkMaxScore } from "./helpers/scoreHandler.js";
+import scoreResetter from "./helpers/scoreResetter.js";
 
 function App() {
 	const [imageState, setImageState] = useState([]);
@@ -61,9 +62,24 @@ function App() {
 	// update maxScore when imageState length changes
 	useEffect(() => {
 		checkMaxScore(imageState.length, scoreState, setScoreState)
-		// function should only fire when imageState length changes - goes into a loop when scoreState is included in dependency array
+		// function should only fire when imageState length changes
 		// eslint-disable-next-line
 	}, [imageState.length])
+
+	// Check win condition
+	useEffect(() => {
+		if (scoreState.maxScore === scoreState.currentScore) {
+			let nextImageState = []
+			nextImageState = initImages();
+			setImageState(nextImageState)
+
+			scoreResetter(scoreState, setScoreState);
+
+			setNavbarState("win")
+		}
+		// function should only fire when currentScore changes
+		// eslint-disable-next-line
+	}, [scoreState.currentScore])
 
 	return (
 		<BrowserRouter>

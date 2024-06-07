@@ -17,24 +17,12 @@ export const imageClickHandler = (id, props) => {
 		if (props.imageState[clickedImageIndex].clicked === false) {
 
 			scoreIncrementer(props.scoreState, props.setScoreState)
+			console.log(props.scoreState.maxScore, props.scoreState.currentScore)
 
-			// Check win condition
-			if (props.scoreState.maxScore === props.scoreState.currentScore) {
+			nextImageState = [...props.imageState];
+			nextImageState[clickedImageIndex].clicked = true;
 
-				nextImageState = initImages();
-
-				scoreResetter(props.scoreState, props.setScoreState);
-
-				props.setNavbarState("win")
-			}
-
-			// continue game
-			else {
-				nextImageState = [...props.imageState];
-				nextImageState[clickedImageIndex].clicked = true;
-
-				props.setNavbarState("correct")
-			}
+			props.setNavbarState("correct")
 		}
 		// lose condition
 		else {
