@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/memory-clicker/static/css/main.22628afa.css",
-    "main.js": "/memory-clicker/static/js/main.9784c59a.js",
+    "main.css": "/memory-clicker/static/css/main.341fafc9.css",
+    "main.js": "/memory-clicker/static/js/main.e356e9ab.js",
     "static/media/get-meowtta-here.webp": "/memory-clicker/static/media/get-meowtta-here.2a9bfbc376f99ee8bb42.webp",
     "static/media/quicksand.woff2": "/memory-clicker/static/media/quicksand.d71cb2a4b837b43bbad5.woff2",
     "index.html": "/memory-clicker/index.html",
-    "main.22628afa.css.map": "/memory-clicker/static/css/main.22628afa.css.map",
-    "main.9784c59a.js.map": "/memory-clicker/static/js/main.9784c59a.js.map"
+    "main.341fafc9.css.map": "/memory-clicker/static/css/main.341fafc9.css.map",
+    "main.e356e9ab.js.map": "/memory-clicker/static/js/main.e356e9ab.js.map"
   },
   "entrypoints": [
-    "static/css/main.22628afa.css",
-    "static/js/main.9784c59a.js"
+    "static/css/main.341fafc9.css",
+    "static/js/main.e356e9ab.js"
   ]
 }
