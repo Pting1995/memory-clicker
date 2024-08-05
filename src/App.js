@@ -69,15 +69,17 @@ function App() {
 	// Check win condition
 	useEffect(() => {
 		// console.log(scoreState.maxScore, scoreState.currentScore)
-		if (scoreState.maxScore === scoreState.currentScore) {
-			let nextImageState = []
-			nextImageState = initImages();
-			setImageState(nextImageState)
+		if (scoreState.maxScore === scoreState.currentScore && scoreState.maxScore !== 0) {
+			setTimeout(() => {
+				shuffleArrayState(initImages(), setImageState)
+			}, fadeOutTimer)
 
 			scoreResetter(scoreState, setScoreState);
 
 			setNavbarState("win")
 		}
+		// function should only fire when currentScore changes
+		// eslint-disable-next-line
 	}, [scoreState.currentScore])
 
 	return (

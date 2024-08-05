@@ -27,11 +27,9 @@ const visualClickHandler = (id, props) => {
 }
 
 const gameplayClickHandler = (id, props) => {
-	console.log(id)
 	let nextImageState = []
-	// win condition
+	// good click condition
 	if (props.imageState[id].clicked === false) {
-		console.log("Good click")
 		scoreIncrementer(props.scoreState, props.setScoreState)
 
 		nextImageState = [...props.imageState];
@@ -39,7 +37,6 @@ const gameplayClickHandler = (id, props) => {
 	}
 	// lose condition
 	else {
-		console.log("bad click")
 		scoreResetter(props.scoreState, props.setScoreState);
 
 		nextImageState = initImages();
@@ -48,6 +45,5 @@ const gameplayClickHandler = (id, props) => {
 
 	setTimeout(() => {
 		shuffleArrayState(nextImageState, props.setImageState)
-		console.log(nextImageState)
 	}, props.fadeOutTimer)
 }
