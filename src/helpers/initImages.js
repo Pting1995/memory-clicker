@@ -10,6 +10,7 @@ const initImages = () => {
 		imageName: "The cat meows at midnight",
 		clicked: false
 	}))
+	console.log(cleanImageArr)
 	return cleanImageArr
 }
 

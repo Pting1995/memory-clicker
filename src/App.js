@@ -13,13 +13,13 @@ import timeoutHandler from "./helpers/timeoutHandler.js";
 import initImages from "./helpers/initImages.js";
 import { shuffleArrayState } from "./helpers/shuffleArray.js";
 import { checkMaxScore } from "./helpers/scoreHandler.js";
-import scoreResetter from "./helpers/scoreResetter.js";
+import { scoreResetter } from "./helpers/scoreHandler.js";
 
 function App() {
 	const [imageState, setImageState] = useState([]);
 
 	const [scoreState, setScoreState] = useState({
-		maxScore: 100,
+		maxScore: imageState.length,
 		highScore: 0,
 		currentScore: 0,
 		priorScore: 0
@@ -68,6 +68,7 @@ function App() {
 
 	// Check win condition
 	useEffect(() => {
+		// console.log(scoreState.maxScore, scoreState.currentScore)
 		if (scoreState.maxScore === scoreState.currentScore) {
 			let nextImageState = []
 			nextImageState = initImages();
@@ -77,8 +78,6 @@ function App() {
 
 			setNavbarState("win")
 		}
-		// function should only fire when currentScore changes
-		// eslint-disable-next-line
 	}, [scoreState.currentScore])
 
 	return (

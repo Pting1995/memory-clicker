@@ -14,9 +14,8 @@ Open [http://localhost:3000](http://localhost:3000)
 
 Runs script to publish to gh-pages
 
-todo: 
-
-create win condition
+todo:
+fix win condition reset method - timeout issue?
 
 create an api server to: 
 	POST highscores. 

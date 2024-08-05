@@ -23,9 +23,11 @@ export const scoreResetter = (scoreState, setScoreState) => {
 }
 
 export const checkMaxScore = (maxScore, scoreState, setScoreState) => {
-	const newScoreState = {
-		...scoreState,
-		maxScore: maxScore
+	if (scoreState.maxScore != maxScore) {
+		const newScoreState = {
+			...scoreState,
+			maxScore: maxScore
+		}
+		setScoreState(newScoreState)
 	}
-	setScoreState(newScoreState)
 }
